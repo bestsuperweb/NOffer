@@ -33,6 +33,7 @@ class CreateModaloptions < ActiveRecord::Migration
             t.string :ribbon_color
             t.string :rt_color
             t.string :ribbon_font
+            t.string :ribbon_size
             t.string :badge_size
             t.string :badge_font
             t.string :badge_color

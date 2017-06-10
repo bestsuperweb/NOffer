@@ -15,14 +15,13 @@
 		<div id="home" class="tab-pane fade in active" ng-app="myApp" ng-controller="myCtrl" 
 						ng-init="
 							shopUrl		= '<%= "https://#{ @shop_session.url }" %>';
-							<% if @option.nil? %>
-							
+							<% if @option.nil? %>							
 								main_text 	= 'Did you want to grab something?\nFREE SHIPPING';
 								txt_color 	= '#ffffff';
 								time_left 	= '00:20:00';	    
 								main_color 	= '#6a499d';
 								main_font 	= 'Lato';
-								font-size	=  '15';
+								font-size	=  15;
 								timer_color = '#f2f5de';
 								timer_font 	= 'Lato';
 								btn_link 	= '<%= "https://#{ @shop_session.url }" %>';
@@ -31,25 +30,26 @@
 								btn_font 	= 'Lato'; 
 								bg_color 	= '#ebebeb';
 								bd_color 	= '#6a499d';
-								percentage 	= '20';
+								percentage 	= 20;
 								use_code 	= '123QWE';
 								option 		= 'option1';
 								product 	= '';
 								product1 	= '';
 								product2 	= '';									
 								timer_txt	= 'FLASH SALE EXPIRES IN:';
-								timer_size	= '30';
+								timer_size	= 30;
 								animation	= 'spin';
 								main_title	= 'SPRING SALE EVENT';								
 								discount_type		= '%';
 								main_title_color 	= '#0095DA';
-								main_title_size 	= '45';
+								main_title_size 	= 45;
 								main_title_font 	= 'Lato';
 								ribbon_text 		= 'Shipping';
 								ribbon_color 		= '#9DDAE7';
 								ribbon_text_color 	= '#fff';
 								ribbon_font 		= 'Lato';
-								badge_size 			= '15';
+								ribbon_size			= 15;
+								badge_size 			= 15;
 								badge_font 			= 'Lato';
 								badge_color 		= '#EE8787';
 								badge_text_color 	= '#fff';
@@ -60,9 +60,7 @@
 								pb_font				= 'Lato';
 								pb_mb_pos			= 'top';
 								pb_desk_pos			= 'top';
-
 							<% else %>
-
 								main_text 	= '<%= @option.main_text %>';
 								txt_color 	= '<%= @option.txt_color %>';
 								time_left 	= '<%= @option.time_left %>';	    
@@ -106,7 +104,6 @@
 								pb_font				= '<%= @option.pb_font %>';
 								pb_mb_pos			= '<%= @option.pb_mb_pos %>';
 								pb_desk_pos			= '<%= @option.pb_desk_pos %>';
-
 							<% end %>														
 								" >
 			<div class="row">
