@@ -14,7 +14,7 @@
 	<div class="tab-content">
 		<div id="home" class="tab-pane fade in active" ng-app="myApp" ng-controller="myCtrl" 
 						ng-init="
-							shopUrl		= '<%= "https://#{ @shop_session.url }" %>';
+								shopUrl		= '<%= "https://#{ @shop_session.url }" %>';
 							<% if @option.nil? %>							
 								main_text 	= 'Did you want to grab something?\nFREE SHIPPING';
 								txt_color 	= '#ffffff';
@@ -33,9 +33,9 @@
 								percentage 	= 20;
 								use_code 	= '123QWE';
 								option 		= 'option1';
-								product 	= '';
-								product1 	= '';
-								product2 	= '';									
+								product 	= ':::';
+								product1 	= ':::';
+								product2 	= ':::';									
 								timer_txt	= 'FLASH SALE EXPIRES IN:';
 								timer_size	= 30;
 								animation	= 'spin';
