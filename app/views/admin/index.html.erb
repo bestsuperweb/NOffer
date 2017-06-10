@@ -21,7 +21,7 @@
 								time_left 	= '00:20:00';	    
 								main_color 	= '#6a499d';
 								main_font 	= 'Lato';
-								font-size	=  15;
+								font_size	=  15;
 								timer_color = '#f2f5de';
 								timer_font 	= 'Lato';
 								btn_link 	= '<%= "https://#{ @shop_session.url }" %>';
@@ -66,7 +66,7 @@
 								time_left 	= '<%= @option.time_left %>';	    
 								main_color 	= '<%= @option.main_color %>';
 								main_font 	= '<%= @option.main_font %>';
-								font_size	= '<%= @option.font_size %>';
+								font_size	= <%= @option.font_size %>;
 								timer_color = '<%= @option.timer_color %>';
 								timer_font 	= '<%= @option.timer_font %>';
 								btn_link	= '<%= @option.btn_link %>';
@@ -83,17 +83,17 @@
 								product1 	= '<%= @option.product1 %>';
 								product2 	= '<%= @option.product2 %>';
 								timer_txt	= '<%= @option.timer_text %>';
-								timer_size	= '<%= @option.timer_size %>';
+								timer_size	= <%= @option.timer_size %>;
 								animation	= '<%= @option.animation %>';
 								main_title	= '<%= @option.main_title %>';
 								main_title_color 	= '<%= @option.main_t_color %>';
-								main_title_size 	= '<%= @option.main_t_size %>';
+								main_title_size 	= <%= @option.main_t_size %>;
 								main_title_font 	= '<%= @option.main_t_font %>';
 								ribbon_text 		= '<%= @option.ribbon_text %>';
 								ribbon_color 		= '<%= @option.ribbon_color %>';
 								ribbon_text_color 	= '<%= @option.rt_color %>';
 								ribbon_font 		= '<%= @option.ribbon_font %>';
-								badge_size 			= '<%= @option.badge_size %>';
+								badge_size 			= <%= @option.badge_size %>;
 								badge_font 			= '<%= @option.badge_font %>';
 								badge_color 		= '<%= @option.badge_color %>';
 								badge_text_color 	= '<%= @option.bt_color %>';
