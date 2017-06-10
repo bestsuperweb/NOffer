@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Profit Pal App</title>
+  <%= stylesheet_link_tag 'application' %>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.1/css/bootstrap-colorpicker.min.css">   
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <div class="app-wrapper">
+    <div class="app-content">
+      <main role="main">
+        <%= yield %>
+      </main>
+    </div>
+  </div>
+
+  <%= render 'layouts/flash_messages' %>
+
+  <script src="https://cdn.shopify.com/s/assets/external/app.js?<%= Time.now.strftime('%Y%m%d%H') %>"></script>
+
+  <script type="text/javascript">
+
+    ShopifyApp.init({
+      apiKey: "<%= ShopifyApp.configuration.api_key %>",
+      shopOrigin: "<%= "https://#{ @shop_session.url }" if @shop_session %>",
+      debug: <%= Rails.env.development? ? 'true' : 'false' %>,
+      forceRedirect: true
+    });
+    
+  </script>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.1/js/bootstrap-colorpicker.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+  <%= javascript_include_tag 'application', "data-turbolinks-track" => true %>
+
+  <% if content_for?(:javascript) %>
+  <div id="ContentForJavascript" data-turbolinks-temporary>
+    <%= yield :javascript %>
+  </div>
+  <% end %>
+</body>
+</html>

@@ -1,0 +1,797 @@
+<div class="container-fluid" >
+	<div class="app-caption">
+		<div class="well">
+			<p class="text-muted">Thank you for choosing NEXT Offer!<br>
+				A simple but revolutionary app that instantly converts your existing customers into repeat buyers! Now you can maximize your customer lifetime value, improve your average order value, and present complimentary offers all in one single, easy to use app!<br>
+				Simply select a theme, adjust your settings, apply your discount coupon paste the code generated into the checkout section of your store and let NEXT Offer take care of the rest.</p>
+		</div>    
+	</div>
+	<ul class="nav nav-tabs">
+		<li class="active"><a data-toggle="tab" href="#home">Offer Setting</a></li>
+		<li><a data-toggle="tab" href="#reports">Reports</a></li>
+		<li><a data-toggle="tab" href="#facebook-group">Facebook Group</a></li>
+	</ul>
+	<div class="tab-content">
+		<div id="home" class="tab-pane fade in active" ng-app="myApp" ng-controller="myCtrl" 
+						ng-init="
+							shopUrl		= '<%= "https://#{ @shop_session.url }" %>';
+							<% if @option.nil? %>
+							
+								main_text 	= 'Did you want to grab something?\nFREE SHIPPING';
+								txt_color 	= '#ffffff';
+								time_left 	= '00:20:00';	    
+								main_color 	= '#6a499d';
+								main_font 	= 'Lato';
+								font-size	=  '15';
+								timer_color = '#f2f5de';
+								timer_font 	= 'Lato';
+								btn_link 	= '<%= "https://#{ @shop_session.url }" %>';
+								btn_text 	= 'Shop Now';
+								btn_color 	= '#fdfdfd';
+								btn_font 	= 'Lato'; 
+								bg_color 	= '#ebebeb';
+								bd_color 	= '#6a499d';
+								percentage 	= '20';
+								use_code 	= '123QWE';
+								option 		= 'option1';
+								product 	= '';
+								product1 	= '';
+								product2 	= '';									
+								timer_txt	= 'FLASH SALE EXPIRES IN:';
+								timer_size	= '30';
+								animation	= 'spin';
+								main_title	= 'SPRING SALE EVENT';								
+								discount_type		= '%';
+								main_title_color 	= '#0095DA';
+								main_title_size 	= '45';
+								main_title_font 	= 'Lato';
+								ribbon_text 		= 'Shipping';
+								ribbon_color 		= '#9DDAE7';
+								ribbon_text_color 	= '#fff';
+								ribbon_font 		= 'Lato';
+								badge_size 			= '15';
+								badge_font 			= 'Lato';
+								badge_color 		= '#EE8787';
+								badge_text_color 	= '#fff';
+								corner_color 		= 'gray';
+								pb_txt				= 'COUPON: NAMASTE'; 
+								pbcolor				= '#f2f5de';
+								pb_bg_color			= '#6a499d';
+								pb_font				= 'Lato';
+								pb_mb_pos			= 'top';
+								pb_desk_pos			= 'top';
+
+							<% else %>
+
+								main_text 	= '<%= @option.main_text %>';
+								txt_color 	= '<%= @option.txt_color %>';
+								time_left 	= '<%= @option.time_left %>';	    
+								main_color 	= '<%= @option.main_color %>';
+								main_font 	= '<%= @option.main_font %>';
+								font_size	= '<%= @option.font_size %>';
+								timer_color = '<%= @option.timer_color %>';
+								timer_font 	= '<%= @option.timer_font %>';
+								btn_link	= '<%= @option.btn_link %>';
+								btn_text 	= '<%= @option.btn_txt %>';
+								btn_color 	= '<%= @option.btn_color %>';
+								btn_font 	= '<%= @option.btn_font %>'; 
+								bg_color 	= '<%= @option.bg_color %>';
+								bd_color 	= '<%= @option.bd_color %>';
+								percentage 	= <%= @option.percentage %>;
+								discount_type= '<%= @option.distype %>';
+								use_code 	= '<%= @option.use_code %>';
+								option 		= '<%= @option.option %>';
+								product 	= '<%= @option.product %>';
+								product1 	= '<%= @option.product1 %>';
+								product2 	= '<%= @option.product2 %>';
+								timer_txt	= '<%= @option.timer_text %>';
+								timer_size	= '<%= @option.timer_size %>';
+								animation	= '<%= @option.animation %>';
+								main_title	= '<%= @option.main_title %>';
+								main_title_color 	= '<%= @option.main_t_color %>';
+								main_title_size 	= '<%= @option.main_t_size %>';
+								main_title_font 	= '<%= @option.main_t_font %>';
+								ribbon_text 		= '<%= @option.ribbon_text %>';
+								ribbon_color 		= '<%= @option.ribbon_color %>';
+								ribbon_text_color 	= '<%= @option.rt_color %>';
+								ribbon_font 		= '<%= @option.ribbon_font %>';
+								badge_size 			= '<%= @option.badge_size %>';
+								badge_font 			= '<%= @option.badge_font %>';
+								badge_color 		= '<%= @option.badge_color %>';
+								badge_text_color 	= '<%= @option.bt_color %>';
+								corner_color 		= '<%= @option.corner_color %>';
+								pb_txt				= '<%= @option.pb_txt %>'; 
+								pbcolor				= '<%= @option.pb_color %>';
+								pb_bg_color			= '<%= @option.pb_bg_color %>';
+								pb_font				= '<%= @option.pb_font %>';
+								pb_mb_pos			= '<%= @option.pb_mb_pos %>';
+								pb_desk_pos			= '<%= @option.pb_desk_pos %>';
+
+							<% end %>														
+								" >
+			<div class="row">
+				<div class="col-sm-6">			
+
+					<h3 class="text-success"><b>Display</b></h3>
+					<hr class="text-success">
+					<div class="display-option">
+						<label class="checkbox-inline"><input type="radio" ng-model="option" value="option1"> Single Product</label>
+						<label class="checkbox-inline"><input type="radio" ng-model="option" value="option3"> Collection Offer</label>
+						<label class="checkbox-inline"><input type="radio" ng-model="option" value="option2"> General Offer</label>
+					</div>
+					<br>
+					<div>
+						<h5 ng-hide="option=='option3'" >Main Title</h5>
+						<input type="text" class="form-control" ng-hide="option=='option3'" ng-model="main_title" value="{{main_title}}">
+
+						<h5 ng-hide="option=='option3'" >Main Text</h5>
+						<textarea class="form-control" ng-hide="option=='option3'" id="main-str" rows="5" cols="50" ng-model="main_text" >{{main_text}}</textarea>
+
+						<h5>Discount</h5>
+						<div class="input-group" >
+							<input type="number" class="form-control input-small" ng-model="percentage" value="{{percentage}}">
+							<div class="input-group-btn bs-dropdown-to-select-group">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+									<span >{{discount_type}}</span>
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li ng-click = "setDistype($event)"><a>%</a></li>
+									<li ng-click = "setDistype($event)"><a>$</a></li>
+								</ul>
+							</div>
+						</div>
+						<h5 ng-show="option=='option2'" >Coupon</h5>
+						<input type="text" class="form-control" ng-show="option=='option2'" ng-model="use_code" value="{{use_code}}">
+
+						<h5 ng-show="option=='option1'" >Product</h5>			        
+						<select class="form-control" ng-show="option=='option1'" ng-model="product" ng-change="setLink()">
+							<% @products.each do |p| %>
+							<option value="<%= p.images.first.attributes[:src].to_s %>:::<%= p.handle %>:::<%= p.title %>"><%= p.title %></option>
+							<% end %>
+						</select>
+
+						<h5 ng-show="option=='option3'" >Product1</h5>			        
+						<select class="form-control" ng-show="option=='option3'" ng-model="product" ng-change="setLink()">
+							<% @products.each do |p| %>
+							<option value="<%= p.images.first.attributes[:src].to_s %>:::<%= p.handle %>:::<%= p.title %>"><%= p.title %></option>
+							<% end %>
+						</select>
+
+						<h5 ng-show="option=='option3'" >Product2</h5>			        
+						<select class="form-control" ng-show="option=='option3'" ng-model="product1" >
+							<% @products.each do |p| %>
+							<option value="<%= p.images.first.attributes[:src].to_s %>:::<%= p.handle %>"><%= p.title %></option>
+							<% end %>
+						</select>
+
+						<h5 ng-show="option=='option3'" >Product3</h5>			        
+						<select class="form-control" ng-show="option=='option3'" ng-model="product2" >
+							<% @products.each do |p| %>
+							<option value="<%= p.images.first.attributes[:src].to_s %>:::<%= p.handle %>"><%= p.title %></option>
+							<% end %>
+						</select>
+
+						<h5 ng-show="option=='option1'||option=='option3'" >Animation Option</h5>			        
+						<select class="form-control" ng-show="option=='option1'||option=='option3'" ng-model="animation" >
+							<option value="">Off</option>
+							<option value="rotateY(360deg)">Spin</option>
+							<option value="scale(1.1)">Zoom</option>
+						</select>
+						<style>
+							 .pop-product-img:hover{
+								 	transform: {{animation}};
+								 }
+						</style>
+
+						<h5>Button Link</h5>
+						<input type="text" id="btn-link" class="form-control" ng-model="btn_link" value="{{btn_link}}" >
+
+						<!-- <div class="checkbox">
+							<label><input type="checkbox" id="auto-apply-coupon" >Auto apply coupon code</label>
+						</div> -->
+						<br>
+						<div class="row">
+							<div class="col-md-6">
+								<h5>Main Title Color</h5>
+								<input type="text" id="main-title-color" class="form-control color" ng-model="main_title_color" value="{{main_title_color}}" >
+							</div>
+							<div class="col-md-6">
+								<h5>Main Title Size</h5>
+								<input type="number" id="main-title-size" class="form-control" ng-model="main_title_size" value="{{main_title_size}}" >
+							</div>
+							<div class="col-md-6">
+								<h5>Main Title Font</h5>
+								<select class="form-control" id="main-title-font" ng-model="main_title_font" value="{{main_title_font}}" >
+									<option style="font-family:Myriad Pro" >Myriad Pro</option>
+									<option style="font-family:Lato" >Lato</option>
+									<option style="font-family:Roboto" >Roboto</option>
+									<option style="font-family:Open Sans">Open Sans</option>
+									<option style="font-family:Josefin Sans">Josefin Sans</option>
+									<option style="font-family:Lobster">Lobster</option>
+									<option style="font-family:Dancing Script">Dancing Script</option>
+									<option style="font-family:Playfair Display">Playfair Display</option>
+									<option style="font-family:Chewy">Chewy</option>
+									<option style="font-family:Quicksand">Quicksand</option>
+									<option style="font-family:Satisfy">Satisfy</option>
+									<option style="font-family:Oswald">Oswald</option>
+								</select>
+							</div>
+							<div class="col-md-6">
+								<h5 class="item-field">Time</h5>
+								<div class="input-group bootstrap-timepicker timepicker">
+									<input id="timepicker1" type="text" class="form-control input-small" ng-model="time_left" value="{{time_left}}">
+									<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+								</div>														
+							</div>
+							
+							<div class="col-md-6">
+								<h5>Main Font</h5>
+								<select class="form-control" id="main-font" ng-model="main_font" value="{{main_font}}" >
+									<option style="font-family:Myriad Pro" >Myriad Pro</option>
+									<option style="font-family:Lato" >Lato</option>
+									<option style="font-family:Roboto" >Roboto</option>
+									<option style="font-family:Open Sans">Open Sans</option>
+									<option style="font-family:Josefin Sans">Josefin Sans</option>
+									<option style="font-family:Lobster">Lobster</option>
+									<option style="font-family:Dancing Script">Dancing Script</option>
+									<option style="font-family:Playfair Display">Playfair Display</option>
+									<option style="font-family:Chewy">Chewy</option>
+									<option style="font-family:Quicksand">Quicksand</option>
+									<option style="font-family:Satisfy">Satisfy</option>
+									<option style="font-family:Oswald">Oswald</option>
+								</select>
+							</div>
+							<div class="col-md-6">
+								<h5>Text Color</h5>
+								<input type="text" id="txt-color" class="form-control color" ng-model="txt_color" value="{{txt_color}}" >
+							</div>
+							<div class="col-md-6">
+								<h5>Text Size</h5>
+								<input type="number" id="font_size" class="form-control" ng-model="font_size" value="{{font_size}}" >
+							</div>
+							<div class="col-md-6">
+								<h5>Background Color</h5>
+								<input type="text" id="bg-color" class="form-control color" ng-model="bg_color" value="{{bg_color}}" >
+							</div>
+							<div class="col-md-6">
+								<h5>Corner Color</h5>
+								<input type="text" id="corner-color" class="form-control color" ng-model="corner_color" value="{{corner_color}}" >
+							</div>
+							<div class="col-md-6">
+								<h5>Border Color</h5>
+								<input type="text" id="bd-color" class="form-control color" ng-model="bd_color" value="{{bd_color}}" >
+							</div>
+							<div class="col-md-6">
+								<h5>Button Text</h5>
+								<input type="text" id="btn-text" class="form-control" ng-model="btn_text" value="{{btn_text}}" >
+							</div>
+							<div class="col-md-6">
+								<h5>Button Font</h5>
+								<select class="form-control" id="btn-font" ng-model="btn_font" value="{{btn_font}}">
+									<option style="font-family:Myriad Pro" >Myriad Pro</option>
+									<option style="font-family:Lato" >Lato</option>
+									<option style="font-family:Roboto" >Roboto</option>
+									<option style="font-family:Open Sans">Open Sans</option>
+									<option style="font-family:Josefin Sans">Josefin Sans</option>
+									<option style="font-family:Lobster">Lobster</option>
+									<option style="font-family:Dancing Script">Dancing Script</option>
+									<option style="font-family:Playfair Display">Playfair Display</option>
+									<option style="font-family:Chewy">Chewy</option>
+									<option style="font-family:Quicksand">Quicksand</option>
+									<option style="font-family:Satisfy">Satisfy</option>
+									<option style="font-family:Oswald">Oswald</option>
+								</select>
+							</div>
+							<div class="col-md-6">
+								<h5>Button Color</h5> 
+								<input type="text" id="main-color" class="form-control color" ng-model="main_color" value="{{main_color}}">
+							</div>
+							<div class="col-md-6">
+								<h5>Button Text Color</h5>
+								<input type="text" id="btn-color" class="form-control color" ng-model="btn_color" value="{{btn_color}}" >
+							</div>
+							<div class="col-md-6">
+								<h5>Button Text Size</h5>
+								<input type="number" class="form-control" ng-model="btn_size" value="{{btn_size}}">						
+							</div>
+							<div class="col-md-6">
+								<h5>Badge Text Size</h5>
+								<input type="number" class="form-control" ng-model="badge_size" value="{{badge_size}}">						
+							</div>
+							<div class="col-md-6">
+								<h5>Badge Color</h5>
+								<input type="text" id="badge-color" class="form-control color" ng-model="badge_color" value="{{badge_color}}" >
+							</div>
+							<div class="col-md-6">
+								<h5>Badge Text Color</h5>
+								<input type="text" id="badge-text-color" class="form-control color" ng-model="badge_text_color" value="{{badge_text_color}}" >
+							</div>
+							<div class="col-md-6">
+								<h5>Badge Text Font</h5>
+								<select class="form-control" id="badge-font" ng-model="badge_font" value="{{badge_font}}">
+									<option style="font-family:Myriad Pro" >Myriad Pro</option>
+									<option style="font-family:Lato" >Lato</option>
+									<option style="font-family:Roboto" >Roboto</option>
+									<option style="font-family:Open Sans">Open Sans</option>
+									<option style="font-family:Josefin Sans">Josefin Sans</option>
+									<option style="font-family:Lobster">Lobster</option>
+									<option style="font-family:Dancing Script">Dancing Script</option>
+									<option style="font-family:Playfair Display">Playfair Display</option>
+									<option style="font-family:Chewy">Chewy</option>
+									<option style="font-family:Quicksand">Quicksand</option>
+									<option style="font-family:Satisfy">Satisfy</option>
+									<option style="font-family:Oswald">Oswald</option>
+								</select>
+							</div>
+							<div class="col-md-6">
+								<h5>Ribbon Text</h5>
+								<input type="text" class="form-control" ng-model="ribbon_text" value="{{ribbon_text}}">				
+							</div>
+							<div class="col-md-6">
+								<h5>Ribborn Text Size</h5>
+								<input type="number" class="form-control" ng-model="ribbon_size" value="{{ribbon_size}}">				
+							</div>
+							<div class="col-md-6">
+								<h5>Ribbon Color</h5>
+								<input type="text" id="ribbon-color" class="form-control color" ng-model="ribbon_color" value="{{ribbon_color}}" >
+							</div>
+							<div class="col-md-6">
+								<h5>Ribbon Text Color</h5>
+								<input type="text" id="ribbon-text-color" class="form-control color" ng-model="ribbon_text_color" value="{{ribbon_text_color}}" >
+							</div>
+							<div class="col-md-6">
+								<h5>Ribborn Text Font</h5>
+								<select class="form-control" id="ribbon-font" ng-model="ribbon_font" value="{{ribbon_font}}">
+									<option style="font-family:Myriad Pro" >Myriad Pro</option>
+									<option style="font-family:Lato" >Lato</option>
+									<option style="font-family:Roboto" >Roboto</option>
+									<option style="font-family:Open Sans">Open Sans</option>
+									<option style="font-family:Josefin Sans">Josefin Sans</option>
+									<option style="font-family:Lobster">Lobster</option>
+									<option style="font-family:Dancing Script">Dancing Script</option>
+									<option style="font-family:Playfair Display">Playfair Display</option>
+									<option style="font-family:Chewy">Chewy</option>
+									<option style="font-family:Quicksand">Quicksand</option>
+									<option style="font-family:Satisfy">Satisfy</option>
+									<option style="font-family:Oswald">Oswald</option>
+								</select>
+							</div>
+							
+							<div class="col-md-6">
+								<h5>Timer Text</h5>
+								<input type="text" id="timer-txt" class="form-control" ng-model="timer_txt" value="{{timer_txt}}" >
+							</div>
+
+							<div class="col-md-6">
+								<h5>Timer Text Size</h5>
+								<input type="number" class="form-control" ng-model="timer_size" value="{{timer_size}}">				
+							</div>
+
+							<div class="col-md-6">
+								<h5>Timer Font</h5>
+								<select class="form-control" id="main-font" ng-model="timer_font" value="{{timer_font}}" >
+									<option style="font-family:Myriad Pro" >Myriad Pro</option>
+									<option style="font-family:Lato" >Lato</option>
+									<option style="font-family:Roboto" >Roboto</option>
+									<option style="font-family:Open Sans">Open Sans</option>
+									<option style="font-family:Josefin Sans">Josefin Sans</option>
+									<option style="font-family:Lobster">Lobster</option>
+									<option style="font-family:Dancing Script">Dancing Script</option>
+									<option style="font-family:Playfair Display">Playfair Display</option>
+									<option style="font-family:Chewy">Chewy</option>
+									<option style="font-family:Quicksand">Quicksand</option>
+									<option style="font-family:Satisfy">Satisfy</option>
+									<option style="font-family:Oswald">Oswald</option>
+								</select>
+							</div>
+							<div class="col-md-6">
+								<h5>Timer Color</h5>
+								<input type="text" id="txt-color" class="form-control color" ng-model="timer_color" value="{{timer_color}}" >
+							</div>
+							
+						</div>
+					</div>
+					<br>
+
+					<h3 class="text-success"><b>Banner</b></h3>
+					<hr class="text-success">
+					<div class="row">
+						<div class="col-md-6">
+							<h5>Text</h5>
+							<input type="text" id="pb-txt" class="form-control" ng-model="pb_txt" value="{{pb_txt}}" >
+						</div>
+						<div class="col-md-6">
+							<h5>Background Color</h5>
+							<input type="text" id="pb-bg-color" class="form-control color" ng-model="pb_bg_color" value="{{pb_bg_color}}" >
+						</div>
+						<div class="col-md-6">
+							<h5>Font</h5>
+							<select class="form-control" id="pb-font" ng-model="pb_font" value="{{pb_font}}">
+								<option style="font-family:Myriad Pro" >Myriad Pro</option>
+								<option style="font-family:Lato" >Lato</option>
+								<option style="font-family:Roboto" >Roboto</option>
+								<option style="font-family:Open Sans">Open Sans</option>
+								<option style="font-family:Josefin Sans">Josefin Sans</option>
+								<option style="font-family:Lobster">Lobster</option>
+								<option style="font-family:Dancing Script">Dancing Script</option>
+								<option style="font-family:Playfair Display">Playfair Display</option>
+								<option style="font-family:Chewy">Chewy</option>
+								<option style="font-family:Quicksand">Quicksand</option>
+								<option style="font-family:Satisfy">Satisfy</option>
+								<option style="font-family:Oswald">Oswald</option>
+							</select>
+						</div>
+						<div class="col-md-6">
+							<h5>Color</h5>
+							<input type="text" id="pb-color" class="form-control color" ng-model="pbcolor" value="{{pbcolor}}" >
+						</div>
+						<div class="col-md-6">
+							<h5>Desktop Position</h5>
+							<select class="form-control" id="pb-desk-pos" ng-model="pb_desk_pos" value="{{pb_desk_pos}}">
+								<option value="top">Top of the page</option>
+								<option value="topfixed">Pin to Top of the page</option>
+								<option selected="selected" value="bottomfixed">Pin to Bottom of the page</option>
+							</select>
+						</div>
+						<div class="col-md-6">
+							<h5>Mobile Position</h5>
+							<select class="form-control" id="pb-mb-pos" ng-model="pb_mb_pos" value="{{pb_mb_pos}}">
+								<option value="top">Top of the page</option>
+								<option value="topfixed">Pin to Top of the page</option>
+								<option selected="selected" value="bottomfixed">Pin to Bottom of the page</option>
+							</select>
+						</div>
+					</div>
+					<!-- Modal -->
+					<div class="modal fade" id="resultModal" role="dialog">
+						<div class="modal-dialog modal-sm animated zoomIn">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title text-success">Tom says</h4>
+								</div>
+								<div class="modal-body">
+									<p class="text-success">Your script was successfully generated.</p>
+								</div>
+								<div class="modal-footer">
+									<button class="btn btn-danger" id="copyScript" data-dismiss="modal">Copy</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<br><br>
+					<button ng-click="generateScript()" class="btn btn-success" id = "btn-save"><b>Save</b></button>
+					<br><br>					
+					<div id="result">
+						<textarea class="form-control" rows="10"></textarea>
+					</div>
+					<br><br>
+
+				</div>
+
+				<div class="col-sm-6">
+					<div id="preview" ng-switch="option">
+						<div id = "option1" class="preview-dialog" ng-switch-when="option1"	style="background-color: {{bg_color}} ; color: {{txt_color}}; border-color: {{bd_color}}" >
+							
+							<div class="main-content">
+								<div class="row">
+									<div class="col-xs-6">
+										<h2 class="main-title" style="font-size: {{main_title_size}}px; font-family: {{main_title_font}}; color: {{main_title_color}}; ">{{ product.split(':::')[2] }}</h2>								
+										<p class="main-text" style="color: {{txt_color}}; font-size: {{font_size}}px; font-family: {{main_font}};">
+											{{main_text}}
+										</p>						
+									</div>
+									<div class="col-xs-6">
+										<br>
+										<a href="{{shopUrl}}/products/{{product.split(':::')[1]}}">
+											<img src="{{product.split(':::')[0]}}" width="70%" class="pop-product-img" >
+										</a>					
+									</div>
+								</div>					
+								
+								<div style="font-family: {{timer_font}}; color: {{timer_color}}; position: relative; top: -10%; right: 0;" >
+									<div class="row" >
+										<div class="col-xs-3"></div>
+										<div class="col-xs-3">
+											<p style="font-size: {{timer_size}}px; margin-right: -40px; ">{{timer_txt}}</p>
+										</div>
+										<div class="col-xs-6" style="font-size: 40px;">
+											{{time_left}}
+										</div>
+									</div>	
+								</div>
+
+								<a href="{{btn_link}}" id="btn" style="color: {{btn_color}}; background-color: {{main_color}}; font-family: {{btn_font}}; font-size: {{ btn_size }}px;" >
+										{{btn_text}}
+								</a>	
+								
+								<div class="arrow-right" style="background-color: {{corner_color}}; "></div>								
+							</div>
+
+							<div class="round-star-label" >
+						      <span class="star-text" style="font-size: {{badge_size}}px; font-family: {{badge_font}}; color: {{badge_text_color}}">{{ percentage }}{{ discount_type }}</span>
+						      <h1 class=ribbon>
+						          <i><u class="ribbon-text" style="font-family: {{ribbon_font}}; font-size: {{ribbon_size}}px; color: {{ribbon_text_color}};">{{ ribbon_text }}</u></i>
+						      </h1>
+						    </div>
+
+						</div>
+
+						<div id = "option3" class="preview-dialog" ng-switch-when="option3"	style="background-color: {{bg_color}} ; color: {{txt_color}}; border-color: {{bd_color}}" >
+							<div class="main-content">
+								<br>
+								<div class="row">									
+									<div class="col-xs-4">
+										<a href="{{shopUrl}}/products/{{product.split(':::')[1]}}">
+											<img src="{{product.split(':::')[0]}}" width="100%" class="pop-product-img" >
+										</a>					
+									</div>
+									<div class="col-xs-4">
+										<a href="{{shopUrl}}/products/{{product1.split(':::')[1]}}">
+											<img src="{{product1.split(':::')[0]}}" width="100%" class="pop-product-img" >
+										</a>					
+									</div>
+									<div class="col-xs-4">
+										<a href="{{shopUrl}}/products/{{product2.split(':::')[1]}}">
+											<img src="{{product2.split(':::')[0]}}" width="100%" class="pop-product-img" >
+										</a>					
+									</div>									
+								</div>					
+																
+								<div style="font-family: {{timer_font}}; color: {{timer_color}}; position: relative; top: -5%; right: 0;" >
+									<div class="row" >
+										<div class="col-xs-3"></div>
+										<div class="col-xs-3">
+											<p style="font-size: {{timer_size}}px; margin-right: -40px; ">{{timer_txt}}</p>
+										</div>
+										<div class="col-xs-6" style="font-size: 40px;">
+											{{time_left}}
+										</div>
+									</div>	
+								</div>
+
+								<a href="{{btn_link}}" id="btn" style="color: {{btn_color}}; background-color: {{main_color}}; font-family: {{btn_font}}; font-size: {{ btn_size }}px;" >
+										{{btn_text}}
+								</a>	
+								
+								<div class="arrow-right" style="background-color: {{corner_color}}; "></div>								
+							</div>
+
+							<div class="round-star-label" >
+						      <span class="star-text" style="font-size: {{badge_size}}px; font-family: {{badge_font}}; color: {{badge_text_color}}">{{ percentage }}{{ discount_type }}</span>
+						      <h1 class=ribbon>
+						          <i><u class="ribbon-text" style="font-family: {{ribbon_font}}; font-size: {{ribbon_size}}px; color: {{ribbon_text_color}};">{{ ribbon_text }}</u></i>
+						      </h1>
+						    </div>
+						</div>
+
+						<div id = "option2" class="preview-dialog" ng-switch-when="option2"	style="background-color: {{bg_color}} ; color: {{txt_color}}; font-family: {{main_font}}; border-color: {{bd_color}}" >
+							<div class="main-content">
+								<h1 style="font-size: {{main_title_size}}px; font-family: {{main_title_font}}; color: {{main_title_color}}; " >{{ main_title }}</h1>									
+								<div class="row" style="color: {{txt_color}}; font-size: {{font_size}}px; font-family: {{main_font}};" >
+									<div class="col-xs-6">
+										<p>{{ main_text }}</p>				
+									</div>
+									<div class="col-xs-6">
+										<p class="use-code" style="box-shadow: 0 0 2px {{bd_color}}; ">{{ use_code }}</p>			
+									</div>									
+								</div>					
+																
+								<div style="font-family: {{timer_font}}; color: {{timer_color}};" >
+									<div class="row" >
+										<div class="col-xs-3"></div>
+										<div class="col-xs-3">
+											<p style="font-size: {{timer_size}}px; margin-right: -40px; ">{{timer_txt}}</p>
+										</div>
+										<div class="col-xs-6" style="font-size: 40px;">
+											{{time_left}}
+										</div>
+									</div>	
+								</div>
+
+								<a href="{{btn_link}}" id="btn" style="color: {{btn_color}}; background-color: {{main_color}}; font-family: {{btn_font}}; font-size: {{ btn_size }}px;" >
+										{{btn_text}}
+								</a>	
+								
+								<div class="arrow-right" style="background-color: {{corner_color}}; "></div>								
+							</div>
+
+							<div class="round-star-label" >
+						      <span class="star-text" style="font-size: {{badge_size}}px; font-family: {{badge_font}}; color: {{badge_text_color}}">{{ percentage }}{{ discount_type }}</span>
+						      <h1 class=ribbon>
+						          <i><u class="ribbon-text" style="font-family: {{ribbon_font}}; font-size: {{ribbon_size}}px; color: {{ribbon_text_color}};">{{ ribbon_text }}</u></i>
+						      </h1>
+						    </div>
+						</div>
+
+						<style>
+							.round-star-label {
+							  background: {{badge_color}};
+							}
+
+							.round-star-label::before {
+							  background: {{badge_color}};
+							}
+
+							.round-star-label::after {
+							  background: {{badge_color}};
+							}
+
+							/* Ribbon */
+							.ribbon:before,
+							.ribbon i:before {
+							    border: 12px solid {{ribbon_color}};
+							}
+
+							.ribbon:before {
+							    left: -26px;
+							    border-left-color: transparent;
+							    -webkit-transform: rotate(-16deg);
+							       -moz-transform: rotate(-16deg);
+							        -ms-transform: rotate(-16deg);
+							         -o-transform: rotate(-16deg);
+							            transform: rotate(-16deg);
+							}
+
+							.ribbon i:before {
+							    right: -26px;
+							    border-right-color: transparent;
+							    -webkit-transform: rotate(16deg);
+							       -moz-transform: rotate(16deg);
+							        -ms-transform: rotate(16deg);
+							         -o-transform: rotate(16deg);
+							            transform: rotate(16deg);
+							    z-index: -1;
+							}
+
+							.ribbon i:after {
+							    border-color: transparent transparent transparent {{ribbon_color}};
+							}
+
+							.ribbon u:after {
+							    border-color: transparent {{ribbon_color}} transparent transparent;
+							}
+
+							.ribbon u {
+							    background: {{ribbon_color}};
+							}
+							.ribbon u::selection { background-color: {{ribbon_color}}; }
+							.ribbon u::-moz-selection { background-color: {{ribbon_color}}; }
+
+							.ribbon u:before {
+							    background: {{ribbon_color}};
+							}
+
+							.ribbon:after {
+							    background: {{badge_color}};
+							}
+						</style>
+
+
+						<div class="preview-bar" style="background-color: {{pb_bg_color}} ; color: {{pbcolor}}; font-family: {{pb_font}};" >
+							{{pb_txt}} - OFFER ENDS: {{time_left}}
+						</div>
+					</div>
+				</div>
+
+				
+			</div>			
+
+		</div>
+
+		<div id="reports" class="tab-pane fade">
+			<div class="row" id="dashboard">
+				<div class="col-sm-12">
+				<div class="meterWrapper">
+					<h2>Today</h2>
+					<div class="well">
+						<div class="meterCount"><%= @dashboard[:today_count] %></div>
+						<div class="meterPrice">$<%= @dashboard[:today_price] %></div>
+					</div>	
+				</div>
+				<div class="meterWrapper">
+					<h2>Yesterday</h2>
+					<div class="well">
+						<div class="meterCount"><%= @dashboard[:yesterday_count] %></div>
+						<div class="meterPrice">$<%= @dashboard[:yesterday_price] %></div>
+					</div>	
+				</div>
+				<div class="meterWrapper">
+					<h2>Week</h2>
+					<div class="well">
+						<div class="meterCount"><%= @dashboard[:week_count] %></div>
+						<div class="meterPrice">$<%= @dashboard[:week_price] %></div>
+					</div>	
+				</div>
+				<div class="meterWrapper">
+					<h2>Month</h2>
+					<div class="well">
+						<div class="meterCount"><%= @dashboard[:month_count] %></div>
+						<div class="meterPrice">$<%= @dashboard[:month_price] %></div>
+					</div>	
+				</div>
+				<div class="meterWrapper">
+					<h2>AllTime</h2>
+					<div class="well">
+						<div class="meterCount"><%= @dashboard[:all_count] %></div>
+						<div class="meterPrice">$<%= @dashboard[:all_price] %></div>
+					</div>	
+				</div>
+				</div>
+
+			</div>
+			<br>
+			<div class="row">
+			<div class="col-sm-12">
+				
+				<h3 class="text-success"><b>Repeat Orders in 20 minitues</b></h3>
+				<hr>
+				<table id="order-table">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Date</th>
+							<th>Customer</th>
+							<th>Email</th>
+							<th>Use Code</th>
+							<th>Total Price</th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<th>Name</th>
+							<th>Date</th>
+							<th>Customer</th>
+							<th>Email</th>
+							<th>Use Code</th>
+							<th>Total Price</th>
+						</tr>
+						<tr>
+							<th colspan="7" class="ts-pager form-inline">
+								<div class="btn-group btn-group-sm" role="group">
+									<button type="button" class="btn btn-default first"><span class="glyphicon glyphicon-step-backward"></span></button>
+									<button type="button" class="btn btn-default prev"><span class="glyphicon glyphicon-backward"></span></button>
+								</div>
+								<span class="pagedisplay"></span>
+								<div class="btn-group btn-group-sm" role="group">
+									<button type="button" class="btn btn-default next"><span class="glyphicon glyphicon-forward"></span></button>
+									<button type="button" class="btn btn-default last"><span class="glyphicon glyphicon-step-forward"></span></button>
+								</div>
+								<select class="form-control input-sm pagesize" title="Select page size">
+									<option selected="selected" value="10">10</option>
+									<option value="20">20</option>
+									<option value="30">30</option>
+									<option value="all">All Rows</option>
+								</select>
+								<select class="form-control input-sm pagenum" title="Select page number"></select>
+							</th>
+						</tr>
+					</tfoot>
+					<tbody>
+						<% @orders.each do |order| %>
+							<tr>
+								<td><%= order.name %></td>
+								<td><%= DateTime.parse(order.created_at).strftime('%Y-%m-%d %H:%M:%S') %></td>
+								<td><%= "#{order.customer.first_name} #{order.customer.last_name}"  %></td>
+								<td><%= order.email %></td>
+								<td><%= order.discount_codes.to_s %></td>
+								<td><%= order.total_price %></td>
+							</tr>
+						<% end %>						
+					</tbody>
+				</table>
+			</div>
+			</div>
+		</div>
+
+		<div id="facebook-group" class="tab-pane fade">
+			<h3>Facebook Group</h3>
+			<p>Some content in Facebook Group.</p>
+		</div>
+
+
+	</div>	
+
+</div>

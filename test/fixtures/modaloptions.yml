@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  option: MyString
+  main_txt: MyText
+  txt_color: MyString
+  time_left: MyString
+  main_color: MyString
+  main_font: MyString
+  timer_color: MyString
+  timer_font: MyString
+  btn_link: MyString
+  btn_color: MyString
+  btn_txt: MyString
+  btn_font: MyString
+  bg_color: MyString
+  bd_color: MyString
+  percentage: MyString
+  distype: MyString
+  use_code: MyString
+  product: MyString
+  product1: MyString
+  product2: MyString
+  shop_id: 
+
+two:
+  option: MyString
+  main_txt: MyText
+  txt_color: MyString
+  time_left: MyString
+  main_color: MyString
+  main_font: MyString
+  timer_color: MyString
+  timer_font: MyString
+  btn_link: MyString
+  btn_color: MyString
+  btn_txt: MyString
+  btn_font: MyString
+  bg_color: MyString
+  bd_color: MyString
+  percentage: MyString
+  distype: MyString
+  use_code: MyString
+  product: MyString
+  product1: MyString
+  product2: MyString
+  shop_id: 
