@@ -107,8 +107,8 @@
   text-overflow: clip;
   background: #1abc9c;
   text-shadow: none;
-  -webkit-transform: rotateZ(60deg)   ;
-  transform: rotateZ(60deg)   ;
+  -webkit-transform: rotateZ(60deg);
+  transform: rotateZ(60deg);
 }
 
 /* Ribbon */
@@ -198,6 +198,7 @@
     color: #fff;
     text-shadow: 0 1px 1px gray, 0 2px 1px gray;
     font-size: 15px;
+    font-style: normal;
 }
 .oldie .ribbon u {
     padding: 0 16px;
@@ -257,7 +258,6 @@
 
 .arrow-right {
   background-color: #444;
-  box-shadow: 0 0 3px 2px rgba(0,0,0,0.8);
   height: 400px;
   left: -200px;
   position: absolute;
