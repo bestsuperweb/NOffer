@@ -285,14 +285,14 @@
  }
 
  #option2 .use-code{
-    padding: 50px 20px;
+    padding: 20px;
     border-radius: 3px;
     margin-right: 10px;
     box-shadow: 0 0 3px #000;
-    font-size: 12px;
+    font-size: 13px;
  }
  #option2 .use-code b{
-    font-size: 15px;
+    font-size: 30px;
  }
 
 
