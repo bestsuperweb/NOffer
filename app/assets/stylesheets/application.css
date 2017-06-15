@@ -358,7 +358,8 @@
    font-size: 18px;
 }
 .hms-div{
-  margin-left: 10px;
+  margin-left: 20px;
+  text-align: center;
 }
 .hms-div p{
   color: #777;
@@ -368,5 +369,8 @@
   border-radius: 2px;
   background: #fff;
   color: #ff0000;
-  font-size: 20px;
+  font-size: 25px;
+  width: 50px;
+  box-shadow: 0 0 2px gray;
+  padding: 10px 0;
 }
