@@ -289,6 +289,10 @@
     border-radius: 3px;
     margin-right: 10px;
     box-shadow: 0 0 3px #000;
+    font-size: 12px;
+ }
+ #option2 .use-code b{
+    font-size: 15px;
  }
 
 
