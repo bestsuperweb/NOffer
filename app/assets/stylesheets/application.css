@@ -357,3 +357,10 @@
 	color: #777;
     font-size: 18px;
 }
+.hms-div{
+  border-radius: 2px;
+  background: #fff;
+  margin-left: 10px;
+  padding: 3px;
+  color: #ff0000;
+}

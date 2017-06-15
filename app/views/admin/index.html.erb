@@ -495,7 +495,28 @@
 											<p style="font-size: {{timer_size}}px; margin-right: -40px; ">{{timer_txt}}</p>
 										</div>
 										<div class="col-xs-6" style="font-size: 40px;">
-											{{time_left}}
+											<table>
+												<tr>
+													<td>
+														<div class="hms-div">
+															<p>HOURS</p>
+															<div>{{time_left.split(':')[0]}}</div>
+														</div>
+													</td>
+													<td>
+														<div class="hms-div">
+															<p>MINUTES</p>
+															<div>{{time_left.split(':')[1]}}</div>
+														</div>
+													</td>
+													<td>
+														<div class="hms-div">
+															<p>SECONDS</p>
+															<div>{{time_left.split(':')[2]}}</div>
+														</div>
+													</td>
+												</tr>
+											</table>
 										</div>
 									</div>	
 								</div>
