@@ -354,13 +354,19 @@
     color: #524747;
 }
 .meterPrice{
-	color: #777;
-    font-size: 18px;
+	 color: #777;
+   font-size: 18px;
 }
 .hms-div{
+  margin-left: 10px;
+}
+.hms-div p{
+  color: #777;
+  font-size: 12px;
+}
+.hms-div div{
   border-radius: 2px;
   background: #fff;
-  margin-left: 10px;
-  padding: 3px;
   color: #ff0000;
+  font-size: 20px;
 }
