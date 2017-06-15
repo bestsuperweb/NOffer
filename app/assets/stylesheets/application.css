@@ -267,13 +267,13 @@
 }
 
  a#btn{
- 	padding: 5px 20px;
- 	border-radius: 3px;
- 	box-shadow: 0 0 3px gray;
- 	text-decoration: none;
- 	font-size: 22px;
+   	padding: 3px 15px;
+   	border-radius: 3px;
+   	box-shadow: 0 0 3px gray;
+   	text-decoration: none;
+   	font-size: 22px;
     position: absolute;
-    bottom: 10px;
+    bottom: 5px;
     right: 100px;
     transition: 1s all ease;
  }
