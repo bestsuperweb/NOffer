@@ -53,6 +53,9 @@
     height: 100%;
     position: relative;    
  }
+ p.main-text{
+  padding: 10px;
+ }
 .round-star-label {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
