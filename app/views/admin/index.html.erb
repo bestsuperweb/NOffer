@@ -144,7 +144,7 @@
 						        </div>
 						        <div id="collapse1" class="panel-collapse collapse">
 						            <div class="panel-body">
-						               	<h5 ng-hide="option=='option3'" >Main Title</h5>
+						               	<h5 ng-show="option=='option2'" >Main Title</h5>
 										<input type="text" class="form-control" ng-hide="option=='option3'" ng-model="main_title" value="{{main_title}}">
 										<h5 ng-show="option=='option1'" >Product</h5>			        
 										<select class="form-control" ng-show="option=='option1'" ng-model="product" ng-change="setLink()">
