@@ -119,52 +119,7 @@
 								pb_mb_pos			= '<%= @option.pb_mb_pos %>';
 								pb_desk_pos			= '<%= @option.pb_desk_pos %>';
 							<% end %>														
-								" >
-
-			<div class="panel-group" id="accordion">
-			    <div class="panel panel-default">
-			        <div class="panel-heading">
-			            <h4 class="panel-title">
-			                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-			                Collapsible Group Item #1 
-			                </a><i class="indicator glyphicon glyphicon-chevron-down  pull-right"></i>
-			            </h4>
-			        </div>
-			        <div id="collapseOne" class="panel-collapse collapse in">
-			            <div class="panel-body">
-			                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-			            </div>
-			        </div>
-			    </div>
-			    <div class="panel panel-default">
-			        <div class="panel-heading">
-			            <h4 class="panel-title">
-			                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-			                Collapsible Group Item #2 
-			                </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
-			            </h4>
-			        </div>
-			        <div id="collapseTwo" class="panel-collapse collapse">
-			            <div class="panel-body">
-			                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-			            </div>
-			        </div>
-			    </div>
-			    <div class="panel panel-default">
-			        <div class="panel-heading">
-			            <h4 class="panel-title">
-			                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-			                Collapsible Group Item #3 
-			                </a><i class="indicator glyphicon glyphicon-chevron-up pull-right"></i>
-			            </h4>
-			        </div>
-			        <div id="collapseThree" class="panel-collapse collapse">
-			            <div class="panel-body">
-			                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-			            </div>
-			        </div>
-			    </div>
-			</div>
+								" >		
 
 			<div class="row">
 				<div class="col-sm-6">			
@@ -178,11 +133,69 @@
 					</div>
 					<br>
 					<div>
-						<h5 ng-hide="option=='option3'" >Main Title</h5>
-						<input type="text" class="form-control" ng-hide="option=='option3'" ng-model="main_title" value="{{main_title}}">
+						<div class="panel-group" id="accordion">
+						    <div class="panel panel-default">
+						        <div class="panel-heading">
+						            <h4 class="panel-title">
+						                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+						                	Title & Text
+						                </a>
+						            </h4>
+						        </div>
+						        <div id="collapse1" class="panel-collapse collapse in">
+						            <div class="panel-body">
+						               	<h5 ng-hide="option=='option3'" >Main Title</h5>
+										<input type="text" class="form-control" ng-hide="option=='option3'" ng-model="main_title" value="{{main_title}}">
+										<h5>Title Color</h5>
+										<input type="text" id="main-title-color" class="form-control color" ng-model="main_title_color" value="{{main_title_color}}" >
+										<h5>Title Size</h5>
+										<input type="number" id="main-title-size" class="form-control" ng-model="main_title_size" value="{{main_title_size}}" >
+										<h5>Title Font</h5>
+										<select class="form-control" id="main-title-font" ng-model="main_title_font" value="{{main_title_font}}" >
+											<option style="font-family:Myriad Pro" >Myriad Pro</option>
+											<option style="font-family:Lato" >Lato</option>
+											<option style="font-family:Roboto" >Roboto</option>
+											<option style="font-family:Open Sans">Open Sans</option>
+											<option style="font-family:Josefin Sans">Josefin Sans</option>
+											<option style="font-family:Lobster">Lobster</option>
+											<option style="font-family:Dancing Script">Dancing Script</option>
+											<option style="font-family:Playfair Display">Playfair Display</option>
+											<option style="font-family:Chewy">Chewy</option>
+											<option style="font-family:Quicksand">Quicksand</option>
+											<option style="font-family:Satisfy">Satisfy</option>
+											<option style="font-family:Oswald">Oswald</option>
+										</select>
+										<hr>
+										<h5 ng-hide="option=='option3'" >Main Text</h5>
+										<textarea class="form-control" ng-hide="option=='option3'" id="main-str" rows="5" cols="50" ng-model="main_text" >{{main_text}}</textarea>
 
-						<h5 ng-hide="option=='option3'" >Main Text</h5>
-						<textarea class="form-control" ng-hide="option=='option3'" id="main-str" rows="5" cols="50" ng-model="main_text" >{{main_text}}</textarea>
+										<h5>Text Font</h5>
+										<select class="form-control" id="main-font" ng-model="main_font" value="{{main_font}}" >
+											<option style="font-family:Myriad Pro" >Myriad Pro</option>
+											<option style="font-family:Lato" >Lato</option>
+											<option style="font-family:Roboto" >Roboto</option>
+											<option style="font-family:Open Sans">Open Sans</option>
+											<option style="font-family:Josefin Sans">Josefin Sans</option>
+											<option style="font-family:Lobster">Lobster</option>
+											<option style="font-family:Dancing Script">Dancing Script</option>
+											<option style="font-family:Playfair Display">Playfair Display</option>
+											<option style="font-family:Chewy">Chewy</option>
+											<option style="font-family:Quicksand">Quicksand</option>
+											<option style="font-family:Satisfy">Satisfy</option>
+											<option style="font-family:Oswald">Oswald</option>
+										</select>
+										<h5>Text Color</h5>
+										<input type="text" id="txt-color" class="form-control color" ng-model="txt_color" value="{{txt_color}}" >
+										<h5>Text Size</h5>
+										<input type="number" id="font_size" class="form-control" ng-model="font_size" value="{{font_size}}" >
+									</div>
+						        </div>
+						    </div>
+						</div>
+
+						
+
+						
 
 						<h5>Discount</h5>
 						<div class="input-group" >
@@ -249,64 +262,15 @@
 						</div> -->
 						<br>
 						<div class="row">
-							<div class="col-md-6">
-								<h5>Main Title Color</h5>
-								<input type="text" id="main-title-color" class="form-control color" ng-model="main_title_color" value="{{main_title_color}}" >
-							</div>
-							<div class="col-md-6">
-								<h5>Main Title Size</h5>
-								<input type="number" id="main-title-size" class="form-control" ng-model="main_title_size" value="{{main_title_size}}" >
-							</div>
-							<div class="col-md-6">
-								<h5>Main Title Font</h5>
-								<select class="form-control" id="main-title-font" ng-model="main_title_font" value="{{main_title_font}}" >
-									<option style="font-family:Myriad Pro" >Myriad Pro</option>
-									<option style="font-family:Lato" >Lato</option>
-									<option style="font-family:Roboto" >Roboto</option>
-									<option style="font-family:Open Sans">Open Sans</option>
-									<option style="font-family:Josefin Sans">Josefin Sans</option>
-									<option style="font-family:Lobster">Lobster</option>
-									<option style="font-family:Dancing Script">Dancing Script</option>
-									<option style="font-family:Playfair Display">Playfair Display</option>
-									<option style="font-family:Chewy">Chewy</option>
-									<option style="font-family:Quicksand">Quicksand</option>
-									<option style="font-family:Satisfy">Satisfy</option>
-									<option style="font-family:Oswald">Oswald</option>
-								</select>
-							</div>
+							
 							<div class="col-md-6">
 								<h5 class="item-field">Time</h5>
 								<div class="input-group bootstrap-timepicker timepicker">
 									<input id="timepicker1" type="text" class="form-control input-small" ng-model="time_left" value="{{time_left}}">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 								</div>														
-							</div>
+							</div>						
 							
-							<div class="col-md-6">
-								<h5>Main Font</h5>
-								<select class="form-control" id="main-font" ng-model="main_font" value="{{main_font}}" >
-									<option style="font-family:Myriad Pro" >Myriad Pro</option>
-									<option style="font-family:Lato" >Lato</option>
-									<option style="font-family:Roboto" >Roboto</option>
-									<option style="font-family:Open Sans">Open Sans</option>
-									<option style="font-family:Josefin Sans">Josefin Sans</option>
-									<option style="font-family:Lobster">Lobster</option>
-									<option style="font-family:Dancing Script">Dancing Script</option>
-									<option style="font-family:Playfair Display">Playfair Display</option>
-									<option style="font-family:Chewy">Chewy</option>
-									<option style="font-family:Quicksand">Quicksand</option>
-									<option style="font-family:Satisfy">Satisfy</option>
-									<option style="font-family:Oswald">Oswald</option>
-								</select>
-							</div>
-							<div class="col-md-6">
-								<h5>Text Color</h5>
-								<input type="text" id="txt-color" class="form-control color" ng-model="txt_color" value="{{txt_color}}" >
-							</div>
-							<div class="col-md-6">
-								<h5>Text Size</h5>
-								<input type="number" id="font_size" class="form-control" ng-model="font_size" value="{{font_size}}" >
-							</div>
 							<div class="col-md-6">
 								<h5>Background Color</h5>
 								<input type="text" id="bg-color" class="form-control color" ng-model="bg_color" value="{{bg_color}}" >
