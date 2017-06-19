@@ -383,3 +383,9 @@
   padding: 5px 0;
   margin: -10px auto;
 }
+.panel-default>.panel-heading{
+  background: #eee;
+}
+.panel-title>a:hover{
+  text-decoration: none;
+}
