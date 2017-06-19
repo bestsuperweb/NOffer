@@ -384,7 +384,7 @@
   margin: -10px auto;
 }
 .panel-default>.panel-heading{
-  background: #eee;
+  background-color: #efefef !important;
 }
 .panel-title>a:hover{
   text-decoration: none;
