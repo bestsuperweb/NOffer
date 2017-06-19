@@ -138,14 +138,54 @@
 						        <div class="panel-heading">
 						            <h4 class="panel-title">
 						                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-						                	Title & Text
+						                	Title
 						                </a>
 						            </h4>
 						        </div>
-						        <div id="collapse1" class="panel-collapse collapse in">
+						        <div id="collapse1" class="panel-collapse collapse">
 						            <div class="panel-body">
 						               	<h5 ng-hide="option=='option3'" >Main Title</h5>
 										<input type="text" class="form-control" ng-hide="option=='option3'" ng-model="main_title" value="{{main_title}}">
+										<h5 ng-show="option=='option1'" >Product</h5>			        
+										<select class="form-control" ng-show="option=='option1'" ng-model="product" ng-change="setLink()">
+											<% @products.each do |p| %>
+											<option value="<%= p.images.first.attributes[:src].to_s %>:::<%= p.handle %>:::<%= p.title %>"><%= p.title %></option>
+											<% end %>
+										</select>
+
+										<h5 ng-show="option=='option3'" >Product1</h5>			        
+										<select class="form-control" ng-show="option=='option3'" ng-model="product" ng-change="setLink()">
+											<% @products.each do |p| %>
+											<option value="<%= p.images.first.attributes[:src].to_s %>:::<%= p.handle %>:::<%= p.title %>"><%= p.title %></option>
+											<% end %>
+										</select>
+
+										<h5 ng-show="option=='option3'" >Product2</h5>			        
+										<select class="form-control" ng-show="option=='option3'" ng-model="product1" >
+											<% @products.each do |p| %>
+											<option value="<%= p.images.first.attributes[:src].to_s %>:::<%= p.handle %>"><%= p.title %></option>
+											<% end %>
+										</select>
+
+										<h5 ng-show="option=='option3'" >Product3</h5>			        
+										<select class="form-control" ng-show="option=='option3'" ng-model="product2" >
+											<% @products.each do |p| %>
+											<option value="<%= p.images.first.attributes[:src].to_s %>:::<%= p.handle %>"><%= p.title %></option>
+											<% end %>
+										</select>
+
+										<h5 ng-show="option=='option1'||option=='option3'" >Animation Option</h5>			        
+										<select class="form-control" ng-show="option=='option1'||option=='option3'" ng-model="animation" >
+											<option value="">Off</option>
+											<option value="rotateY(360deg)">Spin</option>
+											<option value="scale(1.1)">Zoom</option>
+										</select>
+										<style>
+											 .pop-product-img:hover{
+												 	transform: {{animation}};
+												 }
+										</style>
+
 										<h5>Title Color</h5>
 										<input type="text" id="main-title-color" class="form-control color" ng-model="main_title_color" value="{{main_title_color}}" >
 										<h5>Title Size</h5>
@@ -165,7 +205,20 @@
 											<option style="font-family:Satisfy">Satisfy</option>
 											<option style="font-family:Oswald">Oswald</option>
 										</select>
-										<hr>
+									</div>
+						        </div>
+						    </div>
+
+						    <div class="panel panel-default">
+						        <div class="panel-heading">
+						            <h4 class="panel-title">
+						                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+						                	Text
+						                </a>
+						            </h4>
+						        </div>
+						        <div id="collapse2" class="panel-collapse collapse">
+						            <div class="panel-body">
 										<h5 ng-hide="option=='option3'" >Main Text</h5>
 										<textarea class="form-control" ng-hide="option=='option3'" id="main-str" rows="5" cols="50" ng-model="main_text" >{{main_text}}</textarea>
 
@@ -191,228 +244,206 @@
 									</div>
 						        </div>
 						    </div>
+
+						    <div class="panel panel-default">
+						        <div class="panel-heading">
+						            <h4 class="panel-title">
+						                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+						                	Button
+						                </a>
+						            </h4>
+						        </div>
+						        <div id="collapse3" class="panel-collapse collapse">
+						            <div class="panel-body">
+										<h5>Button Text</h5>
+										<input type="text" id="btn-text" class="form-control" ng-model="btn_text" value="{{btn_text}}" >
+
+										<h5>Button Link</h5>
+										<input type="text" id="btn-link" class="form-control" ng-model="btn_link" value="{{btn_link}}" >
+									
+										<h5>Button Font</h5>
+										<select class="form-control" id="btn-font" ng-model="btn_font" value="{{btn_font}}">
+											<option style="font-family:Myriad Pro" >Myriad Pro</option>
+											<option style="font-family:Lato" >Lato</option>
+											<option style="font-family:Roboto" >Roboto</option>
+											<option style="font-family:Open Sans">Open Sans</option>
+											<option style="font-family:Josefin Sans">Josefin Sans</option>
+											<option style="font-family:Lobster">Lobster</option>
+											<option style="font-family:Dancing Script">Dancing Script</option>
+											<option style="font-family:Playfair Display">Playfair Display</option>
+											<option style="font-family:Chewy">Chewy</option>
+											<option style="font-family:Quicksand">Quicksand</option>
+											<option style="font-family:Satisfy">Satisfy</option>
+											<option style="font-family:Oswald">Oswald</option>
+										</select>
+
+										<h5>Button Color</h5> 
+										<input type="text" id="main-color" class="form-control color" ng-model="main_color" value="{{main_color}}">
+									
+										<h5>Button Text Color</h5>
+										<input type="text" id="btn-color" class="form-control color" ng-model="btn_color" value="{{btn_color}}" >
+									
+										<h5>Button Text Size</h5>
+										<input type="number" class="form-control" ng-model="btn_size" value="{{btn_size}}">								
+									</div>
+						        </div>
+						    </div>
+
+						    <div class="panel panel-default">
+						        <div class="panel-heading">
+						            <h4 class="panel-title">
+						                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+						                	Badge
+						                </a>
+						            </h4>
+						        </div>
+						        <div id="collapse4" class="panel-collapse collapse">
+						            <div class="panel-body">
+										<h5>Discount</h5>
+										<div class="input-group" >
+											<input type="number" class="form-control input-small" ng-model="percentage" value="{{percentage}}">
+											<div class="input-group-btn bs-dropdown-to-select-group">
+												<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+													<span >{{discount_type}}</span>
+													<span class="caret"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li ng-click = "setDistype($event)"><a>%</a></li>
+													<li ng-click = "setDistype($event)"><a>$</a></li>
+												</ul>
+											</div>
+										</div>
+										<h5 ng-show="option=='option2'" >Coupon</h5>
+										<input type="text" class="form-control" ng-show="option=='option2'" ng-model="use_code" value="{{use_code}}">
+
+										<h5>Badge Text Size</h5>
+										<input type="number" class="form-control" ng-model="badge_size" value="{{badge_size}}">	
+
+										<h5>Badge Color</h5>
+										<input type="text" id="badge-color" class="form-control color" ng-model="badge_color" value="{{badge_color}}" >
+
+										<h5>Badge Text Color</h5>
+										<input type="text" id="badge-text-color" class="form-control color" ng-model="badge_text_color" value="{{badge_text_color}}" >
+
+										<h5>Badge Text Font</h5>
+										<select class="form-control" id="badge-font" ng-model="badge_font" value="{{badge_font}}">
+											<option style="font-family:Myriad Pro" >Myriad Pro</option>
+											<option style="font-family:Lato" >Lato</option>
+											<option style="font-family:Roboto" >Roboto</option>
+											<option style="font-family:Open Sans">Open Sans</option>
+											<option style="font-family:Josefin Sans">Josefin Sans</option>
+											<option style="font-family:Lobster">Lobster</option>
+											<option style="font-family:Dancing Script">Dancing Script</option>
+											<option style="font-family:Playfair Display">Playfair Display</option>
+											<option style="font-family:Chewy">Chewy</option>
+											<option style="font-family:Quicksand">Quicksand</option>
+											<option style="font-family:Satisfy">Satisfy</option>
+											<option style="font-family:Oswald">Oswald</option>
+										</select>
+
+									</div>
+						        </div>
+						    </div>
+
+						    <div class="panel panel-default">
+						        <div class="panel-heading">
+						            <h4 class="panel-title">
+						                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+						                	Ribbon
+						                </a>
+						            </h4>
+						        </div>
+						        <div id="collapse5" class="panel-collapse collapse">
+						            <div class="panel-body">
+										<h5>Ribbon Text</h5>
+										<input type="text" class="form-control" ng-model="ribbon_text" value="{{ribbon_text}}">	
+										<h5>Ribborn Text Size</h5>
+										<input type="number" class="form-control" ng-model="ribbon_size" value="{{ribbon_size}}">
+										<h5>Ribbon Color</h5>
+										<input type="text" id="ribbon-color" class="form-control color" ng-model="ribbon_color" value="{{ribbon_color}}" >
+										<h5>Ribbon Text Color</h5>
+										<input type="text" id="ribbon-text-color" class="form-control color" ng-model="ribbon_text_color" value="{{ribbon_text_color}}" >
+										<h5>Ribborn Text Font</h5>
+										<select class="form-control" id="ribbon-font" ng-model="ribbon_font" value="{{ribbon_font}}">
+											<option style="font-family:Myriad Pro" >Myriad Pro</option>
+											<option style="font-family:Lato" >Lato</option>
+											<option style="font-family:Roboto" >Roboto</option>
+											<option style="font-family:Open Sans">Open Sans</option>
+											<option style="font-family:Josefin Sans">Josefin Sans</option>
+											<option style="font-family:Lobster">Lobster</option>
+											<option style="font-family:Dancing Script">Dancing Script</option>
+											<option style="font-family:Playfair Display">Playfair Display</option>
+											<option style="font-family:Chewy">Chewy</option>
+											<option style="font-family:Quicksand">Quicksand</option>
+											<option style="font-family:Satisfy">Satisfy</option>
+											<option style="font-family:Oswald">Oswald</option>
+										</select>	
+									</div>
+						        </div>
+						    </div>
+
+						    <div class="panel panel-default">
+						        <div class="panel-heading">
+						            <h4 class="panel-title">
+						                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+						                	Timer
+						                </a>
+						            </h4>
+						        </div>
+						        <div id="collapse6" class="panel-collapse collapse">
+						            <div class="panel-body">
+										<h5 class="item-field">Time</h5>
+										<div class="input-group bootstrap-timepicker timepicker">
+											<input id="timepicker1" type="text" class="form-control input-small" ng-model="time_left" value="{{time_left}}">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+										</div>
+										<h5>Timer Text</h5>
+										<input type="text" id="timer-txt" class="form-control" ng-model="timer_txt" value="{{timer_txt}}" >
+										<h5>Timer Text Size</h5>
+										<input type="number" class="form-control" ng-model="timer_size" value="{{timer_size}}">		
+										<h5>Timer Font</h5>
+										<select class="form-control" id="main-font" ng-model="timer_font" value="{{timer_font}}" >
+											<option style="font-family:Myriad Pro" >Myriad Pro</option>
+											<option style="font-family:Lato" >Lato</option>
+											<option style="font-family:Roboto" >Roboto</option>
+											<option style="font-family:Open Sans">Open Sans</option>
+											<option style="font-family:Josefin Sans">Josefin Sans</option>
+											<option style="font-family:Lobster">Lobster</option>
+											<option style="font-family:Dancing Script">Dancing Script</option>
+											<option style="font-family:Playfair Display">Playfair Display</option>
+											<option style="font-family:Chewy">Chewy</option>
+											<option style="font-family:Quicksand">Quicksand</option>
+											<option style="font-family:Satisfy">Satisfy</option>
+											<option style="font-family:Oswald">Oswald</option>
+										</select>
+										<h5>Timer Color</h5>
+										<input type="text" id="txt-color" class="form-control color" ng-model="timer_color" value="{{timer_color}}" >
+									</div>
+						        </div>
+						    </div>
+
+						    <div class="panel panel-default">
+						        <div class="panel-heading">
+						            <h4 class="panel-title">
+						                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+						                	Background & border
+						                </a>
+						            </h4>
+						        </div>
+						        <div id="collapse7" class="panel-collapse collapse">
+						            <div class="panel-body">
+										<h5>Background Color</h5>
+										<input type="text" id="bg-color" class="form-control color" ng-model="bg_color" value="{{bg_color}}" >
+										<h5>Corner Color</h5>
+										<input type="text" id="corner-color" class="form-control color" ng-model="corner_color" value="{{corner_color}}" >
+										<h5>Border Color</h5>
+										<input type="text" id="bd-color" class="form-control color" ng-model="bd_color" value="{{bd_color}}" >
+									</div>
+						        </div>
+						    </div>
+
 						</div>
 
-						
-
-						
-
-						<h5>Discount</h5>
-						<div class="input-group" >
-							<input type="number" class="form-control input-small" ng-model="percentage" value="{{percentage}}">
-							<div class="input-group-btn bs-dropdown-to-select-group">
-								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-									<span >{{discount_type}}</span>
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu" role="menu">
-									<li ng-click = "setDistype($event)"><a>%</a></li>
-									<li ng-click = "setDistype($event)"><a>$</a></li>
-								</ul>
-							</div>
-						</div>
-						<h5 ng-show="option=='option2'" >Coupon</h5>
-						<input type="text" class="form-control" ng-show="option=='option2'" ng-model="use_code" value="{{use_code}}">
-
-						<h5 ng-show="option=='option1'" >Product</h5>			        
-						<select class="form-control" ng-show="option=='option1'" ng-model="product" ng-change="setLink()">
-							<% @products.each do |p| %>
-							<option value="<%= p.images.first.attributes[:src].to_s %>:::<%= p.handle %>:::<%= p.title %>"><%= p.title %></option>
-							<% end %>
-						</select>
-
-						<h5 ng-show="option=='option3'" >Product1</h5>			        
-						<select class="form-control" ng-show="option=='option3'" ng-model="product" ng-change="setLink()">
-							<% @products.each do |p| %>
-							<option value="<%= p.images.first.attributes[:src].to_s %>:::<%= p.handle %>:::<%= p.title %>"><%= p.title %></option>
-							<% end %>
-						</select>
-
-						<h5 ng-show="option=='option3'" >Product2</h5>			        
-						<select class="form-control" ng-show="option=='option3'" ng-model="product1" >
-							<% @products.each do |p| %>
-							<option value="<%= p.images.first.attributes[:src].to_s %>:::<%= p.handle %>"><%= p.title %></option>
-							<% end %>
-						</select>
-
-						<h5 ng-show="option=='option3'" >Product3</h5>			        
-						<select class="form-control" ng-show="option=='option3'" ng-model="product2" >
-							<% @products.each do |p| %>
-							<option value="<%= p.images.first.attributes[:src].to_s %>:::<%= p.handle %>"><%= p.title %></option>
-							<% end %>
-						</select>
-
-						<h5 ng-show="option=='option1'||option=='option3'" >Animation Option</h5>			        
-						<select class="form-control" ng-show="option=='option1'||option=='option3'" ng-model="animation" >
-							<option value="">Off</option>
-							<option value="rotateY(360deg)">Spin</option>
-							<option value="scale(1.1)">Zoom</option>
-						</select>
-						<style>
-							 .pop-product-img:hover{
-								 	transform: {{animation}};
-								 }
-						</style>
-
-						<h5>Button Link</h5>
-						<input type="text" id="btn-link" class="form-control" ng-model="btn_link" value="{{btn_link}}" >
-
-						<!-- <div class="checkbox">
-							<label><input type="checkbox" id="auto-apply-coupon" >Auto apply coupon code</label>
-						</div> -->
-						<br>
-						<div class="row">
-							
-							<div class="col-md-6">
-								<h5 class="item-field">Time</h5>
-								<div class="input-group bootstrap-timepicker timepicker">
-									<input id="timepicker1" type="text" class="form-control input-small" ng-model="time_left" value="{{time_left}}">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-								</div>														
-							</div>						
-							
-							<div class="col-md-6">
-								<h5>Background Color</h5>
-								<input type="text" id="bg-color" class="form-control color" ng-model="bg_color" value="{{bg_color}}" >
-							</div>
-							<div class="col-md-6">
-								<h5>Corner Color</h5>
-								<input type="text" id="corner-color" class="form-control color" ng-model="corner_color" value="{{corner_color}}" >
-							</div>
-							<div class="col-md-6">
-								<h5>Border Color</h5>
-								<input type="text" id="bd-color" class="form-control color" ng-model="bd_color" value="{{bd_color}}" >
-							</div>
-							<div class="col-md-6">
-								<h5>Button Text</h5>
-								<input type="text" id="btn-text" class="form-control" ng-model="btn_text" value="{{btn_text}}" >
-							</div>
-							<div class="col-md-6">
-								<h5>Button Font</h5>
-								<select class="form-control" id="btn-font" ng-model="btn_font" value="{{btn_font}}">
-									<option style="font-family:Myriad Pro" >Myriad Pro</option>
-									<option style="font-family:Lato" >Lato</option>
-									<option style="font-family:Roboto" >Roboto</option>
-									<option style="font-family:Open Sans">Open Sans</option>
-									<option style="font-family:Josefin Sans">Josefin Sans</option>
-									<option style="font-family:Lobster">Lobster</option>
-									<option style="font-family:Dancing Script">Dancing Script</option>
-									<option style="font-family:Playfair Display">Playfair Display</option>
-									<option style="font-family:Chewy">Chewy</option>
-									<option style="font-family:Quicksand">Quicksand</option>
-									<option style="font-family:Satisfy">Satisfy</option>
-									<option style="font-family:Oswald">Oswald</option>
-								</select>
-							</div>
-							<div class="col-md-6">
-								<h5>Button Color</h5> 
-								<input type="text" id="main-color" class="form-control color" ng-model="main_color" value="{{main_color}}">
-							</div>
-							<div class="col-md-6">
-								<h5>Button Text Color</h5>
-								<input type="text" id="btn-color" class="form-control color" ng-model="btn_color" value="{{btn_color}}" >
-							</div>
-							<div class="col-md-6">
-								<h5>Button Text Size</h5>
-								<input type="number" class="form-control" ng-model="btn_size" value="{{btn_size}}">						
-							</div>
-							<div class="col-md-6">
-								<h5>Badge Text Size</h5>
-								<input type="number" class="form-control" ng-model="badge_size" value="{{badge_size}}">						
-							</div>
-							<div class="col-md-6">
-								<h5>Badge Color</h5>
-								<input type="text" id="badge-color" class="form-control color" ng-model="badge_color" value="{{badge_color}}" >
-							</div>
-							<div class="col-md-6">
-								<h5>Badge Text Color</h5>
-								<input type="text" id="badge-text-color" class="form-control color" ng-model="badge_text_color" value="{{badge_text_color}}" >
-							</div>
-							<div class="col-md-6">
-								<h5>Badge Text Font</h5>
-								<select class="form-control" id="badge-font" ng-model="badge_font" value="{{badge_font}}">
-									<option style="font-family:Myriad Pro" >Myriad Pro</option>
-									<option style="font-family:Lato" >Lato</option>
-									<option style="font-family:Roboto" >Roboto</option>
-									<option style="font-family:Open Sans">Open Sans</option>
-									<option style="font-family:Josefin Sans">Josefin Sans</option>
-									<option style="font-family:Lobster">Lobster</option>
-									<option style="font-family:Dancing Script">Dancing Script</option>
-									<option style="font-family:Playfair Display">Playfair Display</option>
-									<option style="font-family:Chewy">Chewy</option>
-									<option style="font-family:Quicksand">Quicksand</option>
-									<option style="font-family:Satisfy">Satisfy</option>
-									<option style="font-family:Oswald">Oswald</option>
-								</select>
-							</div>
-							<div class="col-md-6">
-								<h5>Ribbon Text</h5>
-								<input type="text" class="form-control" ng-model="ribbon_text" value="{{ribbon_text}}">				
-							</div>
-							<div class="col-md-6">
-								<h5>Ribborn Text Size</h5>
-								<input type="number" class="form-control" ng-model="ribbon_size" value="{{ribbon_size}}">				
-							</div>
-							<div class="col-md-6">
-								<h5>Ribbon Color</h5>
-								<input type="text" id="ribbon-color" class="form-control color" ng-model="ribbon_color" value="{{ribbon_color}}" >
-							</div>
-							<div class="col-md-6">
-								<h5>Ribbon Text Color</h5>
-								<input type="text" id="ribbon-text-color" class="form-control color" ng-model="ribbon_text_color" value="{{ribbon_text_color}}" >
-							</div>
-							<div class="col-md-6">
-								<h5>Ribborn Text Font</h5>
-								<select class="form-control" id="ribbon-font" ng-model="ribbon_font" value="{{ribbon_font}}">
-									<option style="font-family:Myriad Pro" >Myriad Pro</option>
-									<option style="font-family:Lato" >Lato</option>
-									<option style="font-family:Roboto" >Roboto</option>
-									<option style="font-family:Open Sans">Open Sans</option>
-									<option style="font-family:Josefin Sans">Josefin Sans</option>
-									<option style="font-family:Lobster">Lobster</option>
-									<option style="font-family:Dancing Script">Dancing Script</option>
-									<option style="font-family:Playfair Display">Playfair Display</option>
-									<option style="font-family:Chewy">Chewy</option>
-									<option style="font-family:Quicksand">Quicksand</option>
-									<option style="font-family:Satisfy">Satisfy</option>
-									<option style="font-family:Oswald">Oswald</option>
-								</select>
-							</div>
-							
-							<div class="col-md-6">
-								<h5>Timer Text</h5>
-								<input type="text" id="timer-txt" class="form-control" ng-model="timer_txt" value="{{timer_txt}}" >
-							</div>
-
-							<div class="col-md-6">
-								<h5>Timer Text Size</h5>
-								<input type="number" class="form-control" ng-model="timer_size" value="{{timer_size}}">				
-							</div>
-
-							<div class="col-md-6">
-								<h5>Timer Font</h5>
-								<select class="form-control" id="main-font" ng-model="timer_font" value="{{timer_font}}" >
-									<option style="font-family:Myriad Pro" >Myriad Pro</option>
-									<option style="font-family:Lato" >Lato</option>
-									<option style="font-family:Roboto" >Roboto</option>
-									<option style="font-family:Open Sans">Open Sans</option>
-									<option style="font-family:Josefin Sans">Josefin Sans</option>
-									<option style="font-family:Lobster">Lobster</option>
-									<option style="font-family:Dancing Script">Dancing Script</option>
-									<option style="font-family:Playfair Display">Playfair Display</option>
-									<option style="font-family:Chewy">Chewy</option>
-									<option style="font-family:Quicksand">Quicksand</option>
-									<option style="font-family:Satisfy">Satisfy</option>
-									<option style="font-family:Oswald">Oswald</option>
-								</select>
-							</div>
-							<div class="col-md-6">
-								<h5>Timer Color</h5>
-								<input type="text" id="txt-color" class="form-control color" ng-model="timer_color" value="{{timer_color}}" >
-							</div>
-							
-						</div>
-					</div>
 					<br>
 
 					<h3 class="text-success"><b>Banner</b></h3>
