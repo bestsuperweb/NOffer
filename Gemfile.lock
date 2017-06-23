@@ -159,7 +159,6 @@ DEPENDENCIES
   shopify_app
   spring
   web-console (~> 2.0)
-  
 
 BUNDLED WITH
    1.13.6
