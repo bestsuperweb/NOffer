@@ -849,7 +849,7 @@
 			<br>
 			<div class="row">
 				<div class="col-sm-12">
-					<%= line_chart @orders.group_by_hour(&:created_at).count %>
+					<%= line_chart @orders.group_by_month(&:created_at).map{ |o| o.total_price.to_f } %>
 				</div>	
 			</div>
 		</div>
