@@ -6,6 +6,7 @@ class AdminController < ShopifyApp::AuthenticatedController
     @products   = ShopifyAPI::Product.all     
     
     saved_orders = Order.pluck(:ordername)
+    @all = ShopifyAPI::Order.all
     @orders = saved_orders.collect {|order_name| ShopifyAPI::Order.where(:name => order_name).first }
     
     @dashboard = { 
