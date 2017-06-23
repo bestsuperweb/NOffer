@@ -849,7 +849,7 @@
 			<br>
 			<div class="row">
 				<div class="col-sm-12">
-					<%= area_chart @orders.group_by_day(&:created_at).sum(:total_price) %>
+					<%= line_chart @orders.group_by_hour(&:created_at).sum(&:total_price) %>
 				</div>	
 			</div>
 		</div>
