@@ -849,7 +849,9 @@
 			<br>
 			<div class="row">
 				<div class="col-sm-12">
-					<%= area_chart @orders.group_by_day(:created_at).sum(:total_price) %>
+					<%= area_chart @orders.map{ |order|
+						{ name: order.name, data: order.group_by_day(:created_at).sum(:total_price) }
+					} %>
 				</div>	
 			</div>
 		</div>
