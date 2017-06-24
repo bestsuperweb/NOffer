@@ -20,32 +20,31 @@ class AdminController < ShopifyApp::AuthenticatedController
     @orders.each {|order|
         if Date.parse(order.created_at) == Date.today
             @dashboard[:today_count] += 1
-            @dashboard[:today_price] += order.total_price.to_i 
+            @dashboard[:today_price] += order.total_price.to_f 
         end
 
         if Date.parse(order.created_at) == Date.today.prev_day
             @dashboard[:yesterday_count] += 1
-            @dashboard[:yesterday_price] += order.total_price.to_i
+            @dashboard[:yesterday_price] += order.total_price.to_f
         end
 
         if Date.parse(order.created_at) > ( Date.today - 7 )
             @dashboard[:week_count] += 1
-            @dashboard[:week_price] += order.total_price.to_i
+            @dashboard[:week_price] += order.total_price.to_f
         end
 
         if Date.parse(order.created_at) > Date.today.prev_month
             @dashboard[:month_count] += 1
-            @dashboard[:month_price] += order.total_price.to_i
+            @dashboard[:month_price] += order.total_price.to_f
         end
 
         if Date.parse(order.created_at) > Date.today.prev_year
             @dashboard[:year_count] += 1
-            @dashboard[:year_price] += order.total_price.to_i
+            @dashboard[:year_price] += order.total_price.to_f
         end
 
         @dashboard[:all_count] += 1
-        @dashboard[:all_price] += order.total_price.to_i
-        order.created_at =  DateTime.parse(order.created_at)
+        @dashboard[:all_price] += order.total_price.to_f
     }
 
 
