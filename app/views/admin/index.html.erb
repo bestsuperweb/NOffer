@@ -850,7 +850,7 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<%= @orders.group_by_day(&:created_at) %>
-					<%= line_chart @orders.group_by_day(&:created_at).map{ |k, v| [ k, v[:total_price].to_f ] } %>
+					<%= line_chart @orders.group_by_day(&:created_at).map{ |k, v| [ k, v.first.total_price.to_f ] } %>
 					
 				</div>	
 			</div>
