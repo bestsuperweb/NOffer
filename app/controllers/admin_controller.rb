@@ -21,7 +21,7 @@ class AdminController < ShopifyApp::AuthenticatedController
         if Date.parse(order.created_at) == Date.today
             @dashboard[:today_count] += 1
             @dashboard[:today_price] += order.total_price.to_f 
-        end
+        en0d
 
         if Date.parse(order.created_at) == Date.today.prev_day
             @dashboard[:yesterday_count] += 1

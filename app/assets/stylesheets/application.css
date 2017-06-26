@@ -26,7 +26,8 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
 @import url('https://fonts.googleapis.com/css?family=Satisfy');
 @import url('https://fonts.googleapis.com/css?family=Oswald');
- 
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+
 /* Offer setting tab */
  hr.text-success{
  	border-bottom: 2px solid #3c763d;
@@ -393,6 +394,17 @@
 .panel-title>a:hover, .panel-title>a:focus{
   text-decoration: none;
 }
+.panel-title > a:before {
+    float: right !important;
+    font-family: FontAwesome;
+    content:"\f055";
+    padding-right: 5px;
+}
+.panel-title > a.collapsed:before {
+    float: right !important;
+    content:"\f056";
+}
+
 .report-option{
   margin-top: 20px;
 }
