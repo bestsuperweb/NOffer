@@ -395,3 +395,6 @@
 .report-option p{
   font-size: 25px;
 }
+.chart-div{
+  display: none;
+}

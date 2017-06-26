@@ -860,14 +860,18 @@
 			<br>
 			<div class="row">
 				<div class="col-sm-12">
-					<%= area_chart @orders.group_by_hour(&:created_at).map{ |k, v| [ k, v.map {|s| s.total_price.to_f }.reduce(0, :+) ] } %>
-					<%= area_chart @orders.group_by_day(&:created_at).map{ |k, v| [ k, v.map {|s| s.total_price.to_f }.reduce(0, :+) ] } %>
-
-					<%= area_chart @orders.group_by_week(&:created_at).map{ |k, v| [ k, v.map {|s| s.total_price.to_f }.reduce(0, :+) ] } %>
-
-					<%= area_chart @orders.group_by_month(&:created_at).map{ |k, v| [ k, v.map {|s| s.total_price.to_f }.reduce(0, :+) ] } %>
-
-					<%= area_chart @orders.group_by_year(&:created_at).map{ |k, v| [ k, v.map {|s| s.total_price.to_f }.reduce(0, :+) ] } %>					
+					<div class="chart-div">
+						<%= area_chart @orders.group_by_day(&:created_at).map{ |k, v| [ k, v.map {|s| s.total_price.to_f }.reduce(0, :+) ] } %>
+					</div>
+					<div class="chart-div">
+						<%= area_chart @orders.group_by_week(&:created_at).map{ |k, v| [ k, v.map {|s| s.total_price.to_f }.reduce(0, :+) ] } %>
+					</div>
+					<div class="chart-div">
+						<%= area_chart @orders.group_by_month(&:created_at).map{ |k, v| [ k, v.map {|s| s.total_price.to_f }.reduce(0, :+) ] } %>
+					</div>
+					<div class="chart-div">
+						<%= area_chart @orders.group_by_year(&:created_at).map{ |k, v| [ k, v.map {|s| s.total_price.to_f }.reduce(0, :+) ] } %>
+					</div>										
 				</div>	
 			</div>
 		</div>
