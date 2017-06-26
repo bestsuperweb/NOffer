@@ -18,10 +18,11 @@ class AdminController < ShopifyApp::AuthenticatedController
                   }
 
     @orders.each {|order|
+      
         if Date.parse(order.created_at) == Date.today
             @dashboard[:today_count] += 1
             @dashboard[:today_price] += order.total_price.to_f 
-        en0d
+        end
 
         if Date.parse(order.created_at) == Date.today.prev_day
             @dashboard[:yesterday_count] += 1
@@ -45,6 +46,7 @@ class AdminController < ShopifyApp::AuthenticatedController
 
         @dashboard[:all_count] += 1
         @dashboard[:all_price] += order.total_price.to_f
+
     }
 
 
