@@ -12,7 +12,7 @@
 			<div class="col-sm-6 col-md-3">
 				<h4>Total Revenue Generated:</h4>
 				<div class="well text-center">
-					<b class="text-success" style="font-size: 35px;">$15,200.00</b>
+					<b class="text-success" style="font-size: 35px;">$<%= @dashboard[:all_price].round(2) %></b>
 				</div>
 			</div>
 			<div class="col-sm-6 col-md-3" style="padding: 35px;">
@@ -825,35 +825,35 @@
 						<h2>Today</h2>
 						<div class="well">
 							<div class="meterCount"><%= @dashboard[:today_count] %></div>
-							<div class="meterPrice">$<%= @dashboard[:today_price] %></div>
+							<div class="meterPrice">$<%= @dashboard[:today_price].round(2) %></div>
 						</div>	
 					</div>
 					<div class="meterWrapper">
 						<h2>Yesterday</h2>
 						<div class="well">
 							<div class="meterCount"><%= @dashboard[:yesterday_count] %></div>
-							<div class="meterPrice">$<%= @dashboard[:yesterday_price] %></div>
+							<div class="meterPrice">$<%= @dashboard[:yesterday_price].round(2) %></div>
 						</div>	
 					</div>
 					<div class="meterWrapper">
 						<h2>Week</h2>
 						<div class="well">
 							<div class="meterCount"><%= @dashboard[:week_count] %></div>
-							<div class="meterPrice">$<%= @dashboard[:week_price] %></div>
+							<div class="meterPrice">$<%= @dashboard[:week_price].round(2) %></div>
 						</div>	
 					</div>
 					<div class="meterWrapper">
 						<h2>Month</h2>
 						<div class="well">
 							<div class="meterCount"><%= @dashboard[:month_count] %></div>
-							<div class="meterPrice">$<%= @dashboard[:month_price] %></div>
+							<div class="meterPrice">$<%= @dashboard[:month_price].round(2) %></div>
 						</div>	
 					</div>
 					<div class="meterWrapper">
 						<h2>AllTime</h2>
 						<div class="well">
 							<div class="meterCount"><%= @dashboard[:all_count] %></div>
-							<div class="meterPrice">$<%= @dashboard[:all_price] %></div>
+							<div class="meterPrice">$<%= @dashboard[:all_price].round(2) %></div>
 						</div>	
 					</div>
 				</div>
