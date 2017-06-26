@@ -389,3 +389,9 @@
 .panel-title>a:hover, .panel-title>a:focus{
   text-decoration: none;
 }
+.report-option{
+  margin-top: 20px;
+}
+.report-option p{
+  font-size: 25px;
+}
