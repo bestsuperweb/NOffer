@@ -90,7 +90,7 @@ class AdminController < ShopifyApp::AuthenticatedController
 
                         /* Offer setting tab */
                         #tsmodal-fade{position: fixed; top: 0; width: 100%;  height: 100%; z-index: 1000; background: rgba(0,0,0,.5); left: 0;}
-                        div#close{ position: absolute; left: 67%; top: 24%;  background: #{params[:txt_color]};  display: inline-block;  border-radius: 50%;  padding: 2px 7px;  color: #fff;  border: 3px solid #fff;  box-shadow: 0 0 3px grey;  cursor: pointer; transition: all 1s;}
+                        div#close{ position: absolute; left: calc(50vw - 295px);     top: calc(10vh + 5px);  background: #{params[:txt_color]};  display: inline-block;  border-radius: 50%;  padding: 2px 7px;  color: #fff;  border: 3px solid #fff;  box-shadow: 0 0 3px grey;  cursor: pointer; transition: all 1s;}
                         div#close:hover{ transform: rotate(360deg)scale(1.3); }
 
                          div.preview-dialog{
