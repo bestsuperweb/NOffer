@@ -12,7 +12,8 @@ class CreateModaloptions < ActiveRecord::Migration
             t.string :timer_text
             t.string :timer_size
             t.string :btn_link
-            t.string :btn_color     
+            t.string :btn_color
+            t.string :btn_size     
             t.string :main_color
             t.string :btn_txt
             t.string :btn_font

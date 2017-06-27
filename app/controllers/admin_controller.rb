@@ -847,6 +847,7 @@ class AdminController < ShopifyApp::AuthenticatedController
         :main_color,
         :btn_txt,
         :btn_font,
+        :btn_size,
         :bg_color,
         :bd_color,
         :percentage,
