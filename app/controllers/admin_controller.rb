@@ -377,7 +377,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                         .hms-div div{
                           border-radius: 2px;
                           background: #fff;
-                          color: #{params[:timer_color]};
+                          color: #ff0000;
                           font-family: #{params[:timer_font]};
                           font-size: 25px;
                           width: 40px;
