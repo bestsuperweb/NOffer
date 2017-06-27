@@ -493,7 +493,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                   </div>
 
                   <div class='round-star-label' >
-                    <span class='star-text'>#{params[:percentage]params[:distype]}</span>
+                    <span class='star-text'>#{params[:percentage]}#{params[:distype]}</span>
                     <h1 class=ribbon>
                       <i><u class='ribbon-text'>#{params[:ribbon_text]}</u></i>
                     </h1>
