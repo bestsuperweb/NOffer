@@ -18,7 +18,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                   }
 
     @orders.each {|order|
-      
+
         if Date.parse(order.created_at) == Date.today
             @dashboard[:today_count] += 1
             @dashboard[:today_price] += order.total_price.to_f 
@@ -86,19 +86,310 @@ class AdminController < ShopifyApp::AuthenticatedController
                         @import url('https://fonts.googleapis.com/css?family=Quicksand');
                         @import url('https://fonts.googleapis.com/css?family=Satisfy');
                         @import url('https://fonts.googleapis.com/css?family=Oswald');
-                        #tsmodal-fade{position: fixed; top: 0; width: 100%;  height: 100%; z-index: 1000; background: rgba(0,0,0,.5); left: 0;} 
-                        #tsmodal{ text-align: center; padding: 10px; border: 5px double #{params[:bd_color]}; width: 555px; height: 245px; box-shadow: 0 0 5px grey; background-image: url(#{background}); background-color: #{params[:bg_color]}; color: #{params[:main_color]}; font-family: #{params[:main_font]}; background-repeat: no-repeat;  background-size: contain;  background-position: right top; margin: auto; margin-top: 10%; border-radius: 5px; }
-                        div.time-left{ margin-top: -60px; padding: 14px;  text-align: center;  font-size: 20px;  border-radius: 10px 10px 0 0;  box-shadow: 0 0 5px grey;  font-weight: 900;  width: 70%;  margin-left: auto;  margin-right: auto;  background: #{params[:main_color]}; color: #{params[:timer_color]}; font-family: #{params[:timer_font]}; }
-                        div.time-left span{ font-size: 28px; }
-                        div.main-content { margin-top: -5px; } 
-                        div.right-box, div.left-box{ height: 150px; position: relative; width: 46%; padding: 10px 5px; }
-                        div.right-box{ float: right;  background-color: #{params[:main_color]}; border-radius: 3px; color: #{params[:txt_color]}; opacity: .8; }
-                        div.left-box{ float: left; border-radius: 3px; }
-                        a#btn{ background-color: #{params[:main_color]}; color: #{params[:btn_color]}; font-family: #{params[:btn_font]}; border-radius: 3px; padding: 10px 20px; box-shadow: 0 0 3px gray; text-decoration: none; display: inline-block; margin-top: 20px; font-size: 22px; }
-                        p.detailed-upsell{ font-size: #{params[:font_size]}px; color: #{params[:txt_color]}; }
-                        div#close{ position: relative; left: 290px; top: -10px;  background: #{params[:main_color]};  display: inline-block;  border-radius: 50%;  padding: 2px 6px;  color: #fff;  border: 3px solid #fff;  box-shadow: 0 0 3px grey;  cursor: pointer; transition: all 1s;}
+                        @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+
+                        /* Offer setting tab */
+                        #tsmodal-fade{position: fixed; top: 0; width: 100%;  height: 100%; z-index: 1000; background: rgba(0,0,0,.5); left: 0;}
+                        div#close{ position: absolute; left: 98%; top: -5%;  background: #{params[:txt_color]};  display: inline-block;  border-radius: 50%;  padding: 2px 8px;  color: #fff;  border: 3px solid #fff;  box-shadow: 0 0 3px grey;  cursor: pointer; transition: all 1s;}
                         div#close:hover{ transform: rotate(360deg)scale(1.3); }
-                        .pop-product-img{ transition: all 2s ease; } .pop-product-img:hover{ transform: #{params[:animation]}; }"
+
+                         div.preview-dialog{
+                            text-align: center;
+                            margin: auto;
+                            margin-top: 10%;
+                            border: 5px double #{params[:bd_color]};
+                            width: 555px;
+                            height: 350px;
+                            box-shadow: 0 0 5px grey;
+                            background: #{params[:bg_color]};
+                         }
+                         .main-content{
+                            overflow: hidden;
+                            width: 100%;
+                            height: 100%;
+                            position: relative;    
+                         }
+                         p.main-text{
+                            padding: 10px;
+                            color: #{params[:txt_color]};
+                            font-size: #{params[:font_size]};
+                            font-family: #{params[:main_font]};
+                         }
+                        .main-title{
+                            color: #{params[:main_t_color]};
+                            font-size: #{params[:main_t_size]};
+                            font-family: #{params[:main_t_font]};
+                         }
+                        .round-star-label {
+                          -webkit-box-sizing: content-box;
+                          -moz-box-sizing: content-box;
+                          box-sizing: content-box;
+                          width: 80px;
+                          height: 80px;
+                          position: relative;
+                          border: none;                          
+                          text-align: center;
+                          -o-text-overflow: clip;
+                          text-overflow: clip;
+                          background: #{params[:badge_color]};
+                          top: -70px;
+                          left: 0;
+
+                        }
+
+                        .round-star-label::before {
+                          -webkit-box-sizing: content-box;
+                          -moz-box-sizing: content-box;
+                          box-sizing: content-box;
+                          width: 80px;
+                          height: 80px;
+                          position: absolute;
+                          content: '';
+                          top: 0;
+                          left: 0;
+                          border: none;
+                          color: rgba(0,0,0,1);
+                          -o-text-overflow: clip;
+                          text-overflow: clip;
+                          background: #{params[:badge_color]};
+                          text-shadow: none;
+                          -webkit-transform: rotateZ(30deg)   ;
+                          transform: rotateZ(30deg)   ;
+                        }
+
+                        .round-star-label::after {
+                          -webkit-box-sizing: content-box;
+                          -moz-box-sizing: content-box;
+                          box-sizing: content-box;
+                          width: 80px;
+                          height: 80px;
+                          position: absolute;
+                          content: '';
+                          top: 0;
+                          left: 0;
+                          border: none;
+                          color: rgba(0,0,0,1);
+                          -o-text-overflow: clip;
+                          text-overflow: clip;
+                          background: #{params[:badge_color]};
+                          text-shadow: none;
+                          -webkit-transform: rotateZ(60deg);
+                          transform: rotateZ(60deg);
+                        }
+
+                        /* Ribbon */
+                        .ribbon {
+                            position: relative;
+                            width: 80%;
+                            margin: 0;
+                            z-index: 1000;
+                            bottom: -48px;
+                            right: -8px;
+                        }
+
+                        .ribbon:before,
+                        .ribbon i:before {
+                            content: '';
+                            position: absolute;
+                            bottom: -4px;
+                            border: 12px solid #{params[:ribbon_color]};
+                        }
+
+                        .ribbon:before {
+                            left: -26px;
+                            border-left-color: transparent;
+                            -webkit-transform: rotate(-16deg);
+                               -moz-transform: rotate(-16deg);
+                                -ms-transform: rotate(-16deg);
+                                 -o-transform: rotate(-16deg);
+                                    transform: rotate(-16deg);
+                        }
+                        .oldie .ribbon:before {
+                            left: -48px;
+                        }
+
+                        .ribbon i:before {
+                            right: -26px;
+                            border-right-color: transparent;
+                            -webkit-transform: rotate(16deg);
+                               -moz-transform: rotate(16deg);
+                                -ms-transform: rotate(16deg);
+                                 -o-transform: rotate(16deg);
+                                    transform: rotate(16deg);
+                            z-index: -1;
+                        }
+                        .oldie .ribbon i:before {
+                            right: -48px;
+                        }
+
+                        .ribbon i:after,
+                        .ribbon u:after {
+                            content: '';
+                            position: absolute;
+                            border-style: solid;
+                            bottom: -4px;
+                            z-index: 0;
+                        }
+
+                        .ribbon i:after {
+                            right: -16px;
+                            border-color: transparent transparent transparent #{params[:ribbon_color]};
+                            border-width: 0 0 4px 16px;
+                        }
+
+                        .ribbon u:after {
+                            left: 0;
+                            border-color: transparent #{params[:ribbon_color]} transparent transparent;
+                            border-width: 0 16px 4px 0;
+                        }
+
+                        .ribbon u {
+                            display: block;
+                            position: relative;
+                            width: 100%;
+                            left: -16px;
+                            padding: 8px 12px 12px;
+                            background: #{params[:ribbon_color]};
+                            background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d0726a), to(#c7574d));
+                            background-image: -webkit-linear-gradient(#d0726a, #c7574d);
+                            background-image:    -moz-linear-gradient(#d0726a, #c7574d);
+                            background-image:     -ms-linear-gradient(#d0726a, #c7574d);
+                            background-image:         linear-gradient(#d0726a, #c7574d);
+                            -webkit-border-top-left-radius: 50% 8px;
+                                    border-top-left-radius: 50% 8px;
+                            -webkit-border-top-right-radius: 50% 8px;
+                                    border-top-right-radius: 50% 8px;
+                            text-align: center;
+                            text-decoration: none;
+                            color: #{params[:rt_color]};
+                            text-shadow: 0 1px 1px gray, 0 2px 1px gray;
+                            font-size: #{params[:ribbon_size]};
+                            font-family: #{params[:ribbon_font]};
+                        }
+                        .oldie .ribbon u {
+                            padding: 0 16px;
+                            *left: 0px;
+                            *padding: 0;
+                        }
+
+                        .ribbon u {
+                            left: 0;
+                            margin: 0 -16px;
+                            width: auto;
+                        }
+
+                        .ribbon u::selection { background-color: #{params[:ribbon_color]}; }
+                        .ribbon u::-moz-selection { background-color: #{params[:ribbon_color]}; }
+
+                        .ribbon u:before,
+                        .ribbon:after {
+                            content: '';
+                            position: absolute;
+                            height: 8px;
+                            left: 0;
+                            bottom: 0;
+                            -webkit-border-top-left-radius: 50% 8px;
+                                    border-top-left-radius: 50% 8px;
+                            -webkit-border-top-right-radius: 50% 8px;
+                                    border-top-right-radius: 50% 8px;
+                            box-shadow: inset 0 2px 3px rgba(0, 0, 0, .3);
+                        }
+                        .oldie .ribbon u:before,
+                        .oldie .ribbon:after {
+                            content: none;
+                        }
+
+                        .ribbon u:before {
+                            width: 100%;
+                            background: #{params[:ribbon_color]};
+                        }
+
+                        .ribbon:after {
+                            width: 100%;
+                            background: #{params[:badge_color]};
+                            z-index: 1;
+                        }
+                        .star-text{
+                            position: absolute;
+                            z-index: 1000;
+                            text-align: center;
+                            width: 100%;
+                            display: block;
+                            color: #{params[:bt_color]};
+                            font-size: #{params[:badge_size]};
+                            font-family: #{params[:badge_font]};
+                            font-weight: 700;
+                            padding: 5px 0;
+                            text-shadow: 2px 2px 1px gray;
+                        }
+
+                        .arrow-right {
+                          background-color: #{params[:corner_color]};
+                          height: 400px;
+                          left: -200px;
+                          position: absolute;
+                          bottom: -300px;
+                          width: 400px;  
+                          -webkit-transform: rotate(-60deg);
+                        }
+
+                         a#btn{
+                            padding: 3px 15px;
+                            border-radius: 3px;
+                            box-shadow: 0 0 3px gray;
+                            text-decoration: none;
+                            font-size: #{params[:btn_size]};
+                            background: #{params[:main_color]};
+                            color: #{params[:btn_color]};
+                            font-family: #{params[:btn_font]};
+                            position: absolute;
+                            bottom: 5px;
+                            right: 100px;
+                            transition: 1s all ease;
+                         }
+                         a#btn:hover{
+                            transform: scale(1.2);
+                         }
+
+                        .use-code{
+                            padding: 20px;
+                            border-radius: 3px;
+                            margin-right: 10px;
+                            box-shadow: 0 0 3px #000;
+                            font-size: 13px;
+                         }
+                        .use-code b{
+                            font-size: 30px;
+                         }
+
+                        .pop-product-img{
+                            transition: all 2s ease;
+                         }
+
+                        .pop-product-img:hover{
+                            transform: #{params[:animation]};
+                        }
+
+
+                        .hms-div{
+                          margin-left: 20px;
+                          text-align: center;
+                        }
+                        .hms-div p{
+                          color: #777;
+                          font-size: 10px;
+                        }
+                        .hms-div div{
+                          border-radius: 2px;
+                          background: #fff;
+                          color: #{params[:timer_color]};
+                          font-size: 25px;
+                          width: 40px;
+                          box-shadow: 0 0 5px gray;
+                          padding: 5px 0 3px;
+                          margin: -10px auto;
+                        }
+                        "
         jsContent    = "$(function() {
                           $('#tsmodal').addClass('animated bounceInDown');
                           $('#close').on('click', function(){
@@ -108,13 +399,13 @@ class AdminController < ShopifyApp::AuthenticatedController
                           var a = hms.split(':');
                           var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
                           var selectedSeconds = new Date().getTime() + seconds*1000;    
-                          $('div.time-left span').countdown(selectedSeconds, {elapse: true})
+                          $('div.time-left').countdown(selectedSeconds, {elapse: true})
                           .on('update.countdown', function(event) {
                             var $this = $(this);
                             if (event.elapsed) {
                               $('div#tsmodal-fade').addClass('animated zoomOut');
                             } else {
-                              $this.html(event.strftime('%H:%M:%S'));
+                              $this.html(event.strftime('<table><tr><td> <div class=\"hms-div\"> <p>HOURS</p> <div>%H</div> </div> </td> <td> <div class=\"hms-div\"> <p>MINUTES</p> <div>%M</div> </div> </td> <td> <div class=\"hms-div\"> <p>SECONDS</p> <div>%S</div>   </div>  </td>   </tr> </table>'));
                             }
                           });
                           $('a#btn').on('click', function(){
@@ -136,26 +427,80 @@ class AdminController < ShopifyApp::AuthenticatedController
                        });"
 
         result = "<link href='{{'tspopup.css' | asset_url}}' rel='stylesheet' type='text/css' media='all' />
+                  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
                   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
                   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
                   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js'></script>
                   <script src='{{'tspopup.js' | asset_url }}' type='text/javascript' ></script>
-                  <div id='tsmodal-fade'> <div id='tsmodal'>
-                  <div class='time-left'>  OFFER ENDS: <span>#{params[:time_left]}</span> </div>
-                  <div id='close'>X</div>
-                  <div class='main-content'>
-                  <div class='left-box'>
-                    <a href='https://#{ShopifyAPI::Shop.current.domain}/products/#{params[:product].split(':::')[1]}' >
-                      <img src='#{params[:product].split(':::')[0]}' class='pop-product-img' width='70%' />
-                    </a>
+                  <div id='tsmodal-fade'>
+
+                  <div id = 'tsmodal' class='preview-dialog' >
+                   <div id='close'>X</div>
+                   <div class='main-content'>
+                    <div class='row'>
+                      <div class='col-xs-6'>
+                        <h2 class='main-title'>#{params[:main_title]}</h2>               
+                        <p class='main-text' >
+                          #{params[:main_text]}
+                        </p>            
+                      </div>
+                      <div class='col-xs-6'>
+                        <br>
+                        <a href='https://#{ShopifyAPI::Shop.current.domain}/products/#{params[:product].split(':::')[1]}'>
+                          <img src='#{params[:product].split(':::')[0]}' width='70%' class='pop-product-img' >
+                        </a>          
+                      </div>
+                    </div>          
+                    
+                    <div style='position: relative; top: -10%; right: 0;' >
+                      <div class='row' >
+                        <div class='col-xs-3'></div>
+                        <div class='col-xs-3'>
+                          <p style='font-size: #{params[:timer_size]}px; color: #{params[:timer_color]}; margin-right: -40px; '>#{params[:timer_text]}</p>
+                        </div>
+                        <div class='col-xs-6 time-left' style='font-size: 40px;' >
+                          <table>
+                            <tr>
+                              <td>
+                                <div class='hms-div'>
+                                  <p>HOURS</p>
+                                  <div>00</div>
+                                </div>
+                              </td>
+                              <td>
+                                <div class='hms-div'>
+                                  <p>MINUTES</p>
+                                  <div>20</div>
+                                </div>
+                              </td>
+                              <td>
+                                <div class='hms-div'>
+                                  <p>SECONDS</p>
+                                  <div>00</div>
+                                </div>
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>  
+                    </div>
+
+                    <a href='#{params[:btn_link]}' id='btn' >
+                      #{btn_txt}
+                    </a>  
+                    
+                    <div class='arrow-right' ></div>                
                   </div>
-                  <div class='right-box'>
-                  <p class='detailed-upsell' >#{params[:main_text]}</p>
+
+                  <div class='round-star-label' >
+                    <span class='star-text'>#{params[:percentage]params[:distype]}</span>
+                    <h1 class=ribbon>
+                      <i><u class='ribbon-text'>#{params[:ribbon_text]}</u></i>
+                    </h1>
                   </div>
-                  </div>
-                  <div style='clear:both;'></div>
-                  <a href='#' data-link='#{params[:btn_link]}' id='btn' data-order='{{order.name}}'>#{params[:btn_txt]}</a>
-                  </div> </div>"
+                </div>
+
+              </div>"
 
       when 'option2'
         
@@ -201,7 +546,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                             if (event.elapsed) {
                               $('div#tsmodal-fade').addClass('animated zoomOut');
                             } else {
-                              $this.html(event.strftime('%H:%M:%S'));
+                              $this.html(event.strftime('<table><tr><td> <div class=\"hms-div\"> <p>HOURS</p> <div>%H</div> </div> </td> <td> <div class=\"hms-div\"> <p>MINUTES</p> <div>%M</div> </div> </td> <td> <div class=\"hms-div\"> <p>SECONDS</p> <div>%S</div>   </div>  </td>   </tr> </table>'));
                             }
                           });
                           $('a#btn').on('click', function(){
