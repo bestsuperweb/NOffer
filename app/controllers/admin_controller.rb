@@ -116,7 +116,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                             font-family: #{params[:main_font]};
                          }
                         .main-title{
-                            color: #{params[:main_t_color]};
+                            color: #{params[:main_t_color]} !important;
                             font-size: #{params[:main_t_size]}px;
                             font-family: #{params[:main_t_font]};
                          }
@@ -449,8 +449,8 @@ class AdminController < ShopifyApp::AuthenticatedController
                     
                     <div style='position: relative; top: -10%; right: 0;' >
                       <div class='row' >
-                        <div class='col-xs-3'></div>
-                        <div class='col-xs-3'>
+                        <div class='col-xs-2'></div>
+                        <div class='col-xs-4'>
                           <p style='font-size: #{params[:timer_size]}px; color: #{params[:timer_color]}; font-family: #{params[:timer_font]} margin-right: -40px; '>
                             #{params[:timer_text]}</p>
                         </div>
