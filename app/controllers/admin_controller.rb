@@ -485,7 +485,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                       </div>  
                     </div>
 
-                    <a href='#{params[:btn_link]}' id='btn' >
+                    <a href='#{params[:btn_link]}' id='btn' data-order='{{order.name}}' >
                       #{params[:btn_txt]}
                     </a>  
                     
