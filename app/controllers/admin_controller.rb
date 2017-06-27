@@ -434,7 +434,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                    <div class='main-content'>
                     <div class='row'>
                       <div class='col-xs-6'>
-                        <h2 class='main-title'>#{params[:product].split(':::')[1]}</h2>               
+                        <h2 class='main-title'>#{params[:product].split(':::')[2]}</h2>               
                         <p class='main-text' >
                           #{params[:main_text]}
                         </p>            
