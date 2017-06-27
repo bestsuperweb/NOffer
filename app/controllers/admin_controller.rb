@@ -486,7 +486,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                     </div>
 
                     <a href='#{params[:btn_link]}' id='btn' >
-                      #{btn_txt}
+                      #{params[:btn_txt]}
                     </a>  
                     
                     <div class='arrow-right' ></div>                
