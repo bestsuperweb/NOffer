@@ -378,6 +378,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                           border-radius: 2px;
                           background: #fff;
                           color: #{params[:timer_color]};
+                          font-family: #{params[:timer_font]};
                           font-size: 25px;
                           width: 40px;
                           box-shadow: 0 0 5px gray;
@@ -451,7 +452,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                       <div class='row' >
                         <div class='col-xs-2'></div>
                         <div class='col-xs-4'>
-                          <p style='font-size: #{params[:timer_size]}px; color: #{params[:timer_color]}; font-family: #{params[:timer_font]} margin-right: -40px; '>
+                          <p style='font-size: #{params[:timer_size]}px; color: #{params[:timer_color]}; font-family: #{params[:timer_font]}; margin-right: -40px; '>
                             #{params[:timer_text]}</p>
                         </div>
                         <div class='col-xs-6 time-left' style='font-size: 40px;' >
