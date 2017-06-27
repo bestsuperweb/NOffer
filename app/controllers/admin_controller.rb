@@ -260,6 +260,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                             text-shadow: 0 1px 1px gray, 0 2px 1px gray;
                             font-size: #{params[:ribbon_size]}px;
                             font-family: #{params[:ribbon_font]};
+                            font-style: normal;
                         }
                         .oldie .ribbon u {
                             padding: 0 16px;
