@@ -90,7 +90,7 @@ class AdminController < ShopifyApp::AuthenticatedController
 
                         /* Offer setting tab */
                         #tsmodal-fade{position: fixed; top: 0; width: 100%;  height: 100%; z-index: 1000; background: rgba(0,0,0,.5); left: 0;}
-                        div#close{ position: absolute; left: 98%; top: -5%;  background: #{params[:txt_color]};  display: inline-block;  border-radius: 50%;  padding: 2px 8px;  color: #fff;  border: 3px solid #fff;  box-shadow: 0 0 3px grey;  cursor: pointer; transition: all 1s;}
+                        div#close{ position: absolute; left: 67%; top: 24%;  background: #{params[:txt_color]};  display: inline-block;  border-radius: 50%;  padding: 2px 8px;  color: #fff;  border: 3px solid #fff;  box-shadow: 0 0 3px grey;  cursor: pointer; transition: all 1s;}
                         div#close:hover{ transform: rotate(360deg)scale(1.3); }
 
                          div.preview-dialog{
@@ -250,11 +250,6 @@ class AdminController < ShopifyApp::AuthenticatedController
                             left: -16px;
                             padding: 8px 12px 12px;
                             background: #{params[:ribbon_color]};
-                            background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d0726a), to(#c7574d));
-                            background-image: -webkit-linear-gradient(#d0726a, #c7574d);
-                            background-image:    -moz-linear-gradient(#d0726a, #c7574d);
-                            background-image:     -ms-linear-gradient(#d0726a, #c7574d);
-                            background-image:         linear-gradient(#d0726a, #c7574d);
                             -webkit-border-top-left-radius: 50% 8px;
                                     border-top-left-radius: 50% 8px;
                             -webkit-border-top-right-radius: 50% 8px;
@@ -263,7 +258,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                             text-decoration: none;
                             color: #{params[:rt_color]};
                             text-shadow: 0 1px 1px gray, 0 2px 1px gray;
-                            font-size: #{params[:ribbon_size]};
+                            font-size: #{params[:ribbon_size]}px;
                             font-family: #{params[:ribbon_font]};
                         }
                         .oldie .ribbon u {
