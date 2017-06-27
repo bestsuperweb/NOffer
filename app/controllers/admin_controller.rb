@@ -90,7 +90,7 @@ class AdminController < ShopifyApp::AuthenticatedController
 
                         /* Offer setting tab */
                         #tsmodal-fade{position: fixed; top: 0; width: 100%;  height: 100%; z-index: 1000; background: rgba(0,0,0,.5); left: 0;}
-                        div#close{ position: absolute; left: calc(50vw - 295px); margin-top: -12px;  background: #{params[:txt_color]};  display: inline-block;  border-radius: 50%;  padding: 2px 7px;  color: #fff;  border: 3px solid #fff;  box-shadow: 0 0 3px grey;  cursor: pointer; transition: all 1s;}
+                        div#close{ position: absolute; right: calc(50vw - 295px); margin-top: -12px;  background: #{params[:txt_color]};  display: inline-block;  border-radius: 50%;  padding: 2px 7px;  color: #fff;  border: 3px solid #fff;  box-shadow: 0 0 3px grey;  cursor: pointer; transition: all 1s;}
                         div#close:hover{ transform: rotate(360deg)scale(1.3); }
 
                          div.preview-dialog{
@@ -112,12 +112,12 @@ class AdminController < ShopifyApp::AuthenticatedController
                          p.main-text{
                             padding: 10px;
                             color: #{params[:txt_color]};
-                            font-size: #{params[:font_size]};
+                            font-size: #{params[:font_size]}px;
                             font-family: #{params[:main_font]};
                          }
                         .main-title{
                             color: #{params[:main_t_color]};
-                            font-size: #{params[:main_t_size]};
+                            font-size: #{params[:main_t_size]}px;
                             font-family: #{params[:main_t_font]};
                          }
                         .round-star-label {
@@ -311,7 +311,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                             width: 100%;
                             display: block;
                             color: #{params[:bt_color]};
-                            font-size: #{params[:badge_size]};
+                            font-size: #{params[:badge_size]}px;
                             font-family: #{params[:badge_font]};
                             font-weight: 700;
                             padding: 5px 0;
@@ -333,7 +333,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                             border-radius: 3px;
                             box-shadow: 0 0 3px gray;
                             text-decoration: none;
-                            font-size: #{params[:btn_size]};
+                            font-size: #{params[:btn_size]}px;
                             background: #{params[:main_color]};
                             color: #{params[:btn_color]};
                             font-family: #{params[:btn_font]};
@@ -434,9 +434,9 @@ class AdminController < ShopifyApp::AuthenticatedController
                    <div class='main-content'>
                     <div class='row'>
                       <div class='col-xs-6'>
-                        <h2 class='main-title'>#{params[:main_title]}</h2>               
+                        <h2 class='main-title'>#{params[:product].split(':::')[1]}</h2>               
                         <p class='main-text' >
-                          #{params[:product].split(':::')[1]}
+                          #{params[:main_text]}
                         </p>            
                       </div>
                       <div class='col-xs-6'>
@@ -451,7 +451,8 @@ class AdminController < ShopifyApp::AuthenticatedController
                       <div class='row' >
                         <div class='col-xs-3'></div>
                         <div class='col-xs-3'>
-                          <p style='font-size: #{params[:timer_size]}px; color: #{params[:timer_color]}; margin-right: -40px; '>#{params[:timer_text]}</p>
+                          <p style='font-size: #{params[:timer_size]}px; color: #{params[:timer_color]}; font-family: #{params[:timer_font]} margin-right: -40px; '>
+                            #{params[:timer_text]}</p>
                         </div>
                         <div class='col-xs-6 time-left' style='font-size: 40px;' >
                           <table>
