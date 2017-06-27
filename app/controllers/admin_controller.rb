@@ -436,7 +436,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                       <div class='col-xs-6'>
                         <h2 class='main-title'>#{params[:main_title]}</h2>               
                         <p class='main-text' >
-                          #{params[:main_text]}
+                          #{params[:product].split(':::')[1]}
                         </p>            
                       </div>
                       <div class='col-xs-6'>
