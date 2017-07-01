@@ -1314,7 +1314,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                     <div style='position: relative; top: -15%; right: 0;' >
                       <div class='row'>
                         <div class='col-xs-12'>
-                          <h1 class='main-title'>#{params[:main_title]}</h1>
+                          <h1 class='main-title'>Best Seller Collection</h1>
                         </div>
                       </div>
                       <div class='row' >
