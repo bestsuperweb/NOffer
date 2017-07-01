@@ -1538,6 +1538,7 @@ class AdminController < ShopifyApp::AuthenticatedController
         :ribbon_color,
         :rt_color,
         :ribbon_font,
+        :ribbon_size,
         :badge_size,
         :badge_font,
         :badge_color,
