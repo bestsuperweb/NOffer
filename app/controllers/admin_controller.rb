@@ -326,7 +326,8 @@ class AdminController < ShopifyApp::AuthenticatedController
                           position: absolute;
                           bottom: -300px;
                           width: 400px;  
-                          -webkit-transform: rotate(-60deg);
+                          -webkit-transform: rotate(-50deg);
+                                  transform: rotate(-50deg);
                         }
 
                          a#btn{
@@ -753,7 +754,8 @@ class AdminController < ShopifyApp::AuthenticatedController
                           position: absolute;
                           bottom: -300px;
                           width: 400px;  
-                          -webkit-transform: rotate(-60deg);
+                          -webkit-transform: rotate(-50deg);
+                                  transform: rotate(-50deg);
                         }
 
                          a#btn{
@@ -1183,7 +1185,8 @@ class AdminController < ShopifyApp::AuthenticatedController
                           position: absolute;
                           bottom: -300px;
                           width: 400px;  
-                          -webkit-transform: rotate(-60deg);
+                          -webkit-transform: rotate(-50deg);
+                                  transform: rotate(-50deg);
                         }
 
                          a#btn{

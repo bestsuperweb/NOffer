@@ -276,7 +276,8 @@
   position: absolute;
   bottom: -300px;
   width: 400px;  
-  -webkit-transform: rotate(-45deg);
+  -webkit-transform: rotate(-50deg);
+          transform: rotate(-50deg);
 }
 
  a#btn{
