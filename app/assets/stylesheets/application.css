@@ -42,6 +42,11 @@
  div.display-option .checkbox-inline{
     padding-left: 12px;
  }
+ div.display-option, div.template-setting{
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 5px;
+ }
  div.preview-dialog{
  	text-align: center;
  	position: fixed;
@@ -271,7 +276,7 @@
   position: absolute;
   bottom: -300px;
   width: 400px;  
-  -webkit-transform: rotate(-60deg);
+  -webkit-transform: rotate(-45deg);
 }
 
  a#btn{

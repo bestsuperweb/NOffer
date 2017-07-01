@@ -6,16 +6,22 @@
 			</div>
 			<div class="col-sm-6 col-md-3">
 				<div class="well">
-					<p>Thanks You for using NEXT Offer!<br><br>A simple but revolutionary app that instantly converts your customers into repeat buyers!</p>
+					<p>Thanks You - not thanks you<br><br>A simple but revolutionary app that instantly converts your customers into repeat buyers!</p>
 				</div>
 			</div>
-			<div class="col-sm-6 col-md-3">
-				<h4>Total Revenue Generated:</h4>
+			<div class="col-sm-3 col-md-2">
+				<h4>Revenue Generated:</h4>
 				<div class="well text-center">
 					<b class="text-success" style="font-size: 35px;">$<%= @dashboard[:all_price].round(2) %></b>
 				</div>
 			</div>
-			<div class="col-sm-6 col-md-3" style="padding: 35px;">
+			<div class="col-sm-3 col-md-2">
+				<h4>Total Orders:</h4>
+				<div class="well text-center">
+					<b class="text-success" style="font-size: 35px;">$<%= @dashboard[:all_count] %></b>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-2" style="padding: 35px;">
 				<input type="checkbox" data-toggle="toggle" data-size="large" data-onstyle="success" data-width="150" data-height="70"  data-on="Live" data-off="Offline">
 			</div>
 		</div>   
@@ -23,7 +29,7 @@
 	<ul class="nav nav-tabs">
 		<li class="active"><a data-toggle="tab" href="#home">Offer Setting</a></li>
 		<li><a data-toggle="tab" href="#reports">Reports</a></li>
-		<li><a data-toggle="tab" href="#facebook-group">Facebook Group</a></li>
+		<li><a data-toggle="tab" href="#facebook-group">Updates</a></li>
 	</ul>
 	<div class="tab-content">
 		<div id="home" class="tab-pane fade in active" ng-app="myApp" ng-controller="myCtrl" 
@@ -127,12 +133,14 @@
 					<h3 class="text-success"><b>Display</b></h3>
 					<hr class="text-success">
 					<div class="display-option">
+						<h4>Display Template:</h4>
 						<label class="checkbox-inline"><input type="radio" ng-model="option" value="option1"> Single Product</label>
 						<label class="checkbox-inline"><input type="radio" ng-model="option" value="option3"> Collection Offer</label>
 						<label class="checkbox-inline"><input type="radio" ng-model="option" value="option2"> General Offer</label>
 					</div>
 					<br>
-					<div>
+					<div class="template-setting">
+						<h4>Template Settings:</h4>
 						<div class="panel-group" id="accordion">
 						    <div class="panel panel-default">
 						        <div class="panel-heading">
@@ -444,9 +452,11 @@
 
 						</div>
 
+					</div>
+
 					<br>
 
-					<h3 class="text-success"><b>Banner</b></h3>
+					<h3 class="text-success"><b>Sticky Bar</b></h3>
 					<hr class="text-success">
 					<div class="row">
 						<div class="col-md-6">
@@ -520,8 +530,6 @@
 						<textarea class="form-control" rows="10"></textarea>
 					</div>
 					<br><br>
-
-				</div>
 
 				<div class="col-sm-6">
 					<div id="preview" ng-switch="option">
@@ -938,8 +946,8 @@
 		</div>
 
 		<div id="facebook-group" class="tab-pane fade">
-			<h3>Facebook Group</h3>
-			<p>Some content in Facebook Group.</p>
+			<h3>No new updates available.</h3>
+			<p>For suppot, please send us email at hey@wilchrisalex.com</p>
 		</div>
 
 
