@@ -1289,22 +1289,31 @@ class AdminController < ShopifyApp::AuthenticatedController
                   <div id = 'tsmodal' class='preview-dialog' >
                    <div id='close'>X</div>
                    <div class='main-content'>
-                    <div class='row'>
-                      <div class='col-xs-6'>
-                        <h2 class='main-title'>#{params[:product].split(':::')[2]}</h2>               
-                        <p class='main-text' >
-                          #{params[:main_text]}
-                        </p>            
-                      </div>
-                      <div class='col-xs-6'>
-                        <br>
+                    <br>
+                    <div class='row'>                 
+                      <div class='col-xs-4'>
                         <a href='https://#{ShopifyAPI::Shop.current.domain}/products/#{params[:product].split(':::')[1]}'>
-                          <img src='#{params[:product].split(':::')[0]}' width='70%' class='pop-product-img' >
+                          <img src='#{params[:product].split(':::')[0]}' width='90%' class='pop-product-img' >
                         </a>          
                       </div>
+                      <div class='col-xs-4'>
+                        <a href='https://#{ShopifyAPI::Shop.current.domain}/products/#{params[:product1].split(':::')[1]}'>
+                          <img src='#{params[:product1].split(':::')[0]}' width='90%' class='pop-product-img' >
+                        </a>          
+                      </div>
+                      <div class='col-xs-4'>
+                        <a href='https://#{ShopifyAPI::Shop.current.domain}/products/#{params[:product2].split(':::')[1]}'>
+                          <img src='#{params[:product2].split(':::')[0]}' width='90%' class='pop-product-img' >
+                        </a>          
+                      </div>                  
                     </div>          
                     
-                    <div style='position: relative; top: -10%; right: 0;' >
+                    <div style='position: relative; top: -15%; right: 0;' >
+                      <div class='row'>
+                        <div class='col-xs-12'>
+                          <h1 class='main-title'>#{params[:main-title]}</h1>
+                        </div>
+                      </div>
                       <div class='row' >
                         <div class='col-xs-2'></div>
                         <div class='col-xs-4'>
