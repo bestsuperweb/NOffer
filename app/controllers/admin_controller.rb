@@ -778,11 +778,14 @@ class AdminController < ShopifyApp::AuthenticatedController
                             padding: 20px;
                             border-radius: 3px;
                             margin-right: 10px;
-                            box-shadow: 0 0 3px #000;
+                            box-shadow: 0 0 3px grey;
                             font-size: 13px;
+                            margin-top: 20px;
                          }
                         .use-code b{
                             font-size: 30px;
+                            margin: 10px 0;
+                            display: block;
                          }
 
                         .pop-product-img{
@@ -876,7 +879,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                       </div>
                     </div>          
                     
-                    <div style='position: relative; top: -10%; right: 0;' >
+                    <div style='position: relative; top: -5%; right: 0;' >
                       <div class='row' >
                         <div class='col-xs-2'></div>
                         <div class='col-xs-4'>
@@ -1311,7 +1314,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                     <div style='position: relative; top: -15%; right: 0;' >
                       <div class='row'>
                         <div class='col-xs-12'>
-                          <h1 class='main-title'>#{params[:main-title]}</h1>
+                          <h1 class='main-title'>#{params[:main_title]}</h1>
                         </div>
                       </div>
                       <div class='row' >
