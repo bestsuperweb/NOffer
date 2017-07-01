@@ -43,7 +43,7 @@
     padding-left: 12px;
  }
  div.display-option, div.template-setting{
-    border: 1px solid gray;
+    box-shadow: 0 0 3px grey;
     padding: 10px;
     border-radius: 5px;
  }
