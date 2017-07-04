@@ -302,6 +302,37 @@
 						    <div class="panel panel-default">
 						        <div class="panel-heading">
 						            <h4 class="panel-title">
+						                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+						                	Coupon
+						                </a>
+						            </h4>
+						        </div>
+						        <div id="collapse7" class="panel-collapse collapse">
+						            <div class="panel-body">
+										<h5>Discount</h5>
+										<div class="input-group" >
+											<input type="number" class="form-control input-small" ng-model="percentage" value="{{percentage}}">
+											<div class="input-group-btn bs-dropdown-to-select-group">
+												<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+													<span >{{discount_type}}</span>
+													<span class="caret"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li ng-click = "setDistype($event)"><a>%</a></li>
+													<li ng-click = "setDistype($event)"><a>$</a></li>
+												</ul>
+											</div>
+										</div>
+										<h5 ng-show="option=='option2'" >Coupon</h5>
+										<input type="text" class="form-control" ng-show="option=='option2'" ng-model="use_code" value="{{use_code}}">
+										
+									</div>
+						        </div>
+						    </div>
+
+						    <div class="panel panel-default">
+						        <div class="panel-heading">
+						            <h4 class="panel-title">
 						                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
 						                	Badge
 						                </a>
@@ -412,36 +443,6 @@
 										</select>
 										<h5>Timer Color</h5>
 										<input type="text" id="txt-color" class="form-control color" ng-model="timer_color" value="{{timer_color}}" >
-									</div>
-						        </div>
-						    </div>
-
-						    <div class="panel panel-default">
-						        <div class="panel-heading">
-						            <h4 class="panel-title">
-						                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse7">
-						                	Coupon
-						                </a>
-						            </h4>
-						        </div>
-						        <div id="collapse7" class="panel-collapse collapse">
-						            <div class="panel-body">
-										<h5>Discount</h5>
-										<div class="input-group" >
-											<input type="number" class="form-control input-small" ng-model="percentage" value="{{percentage}}">
-											<div class="input-group-btn bs-dropdown-to-select-group">
-												<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-													<span >{{discount_type}}</span>
-													<span class="caret"></span>
-												</button>
-												<ul class="dropdown-menu" role="menu">
-													<li ng-click = "setDistype($event)"><a>%</a></li>
-													<li ng-click = "setDistype($event)"><a>$</a></li>
-												</ul>
-											</div>
-										</div>
-										<h5 ng-show="option=='option2'" >Coupon</h5>
-										<input type="text" class="form-control" ng-show="option=='option2'" ng-model="use_code" value="{{use_code}}">
 									</div>
 						        </div>
 						    </div>
