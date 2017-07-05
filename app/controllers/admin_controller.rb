@@ -474,7 +474,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                       <div class='row' >
                         <div class='col-xs-2'></div>
                         <div class='col-xs-4'>
-                          <p style='font-size: #{params[:timer_size]}px; color: #{params[:timer_color]}; font-family: #{params[:timer_font]}; margin-right: -40px; '>
+                          <p style='font-size: #{params[:timer_size]}px; color: #{params[:timer_color]}; font-family: #{params[:timer_font]}; margin-right: -40px; margin-top: 15px;'>
                             #{params[:timer_text]}</p>
                         </div>
                         <div class='col-xs-6 time-left' style='font-size: 40px;' >
@@ -905,7 +905,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                       <div class='row' >
                         <div class='col-xs-2'></div>
                         <div class='col-xs-4'>
-                          <p style='font-size: #{params[:timer_size]}px; color: #{params[:timer_color]}; font-family: #{params[:timer_font]}; margin-right: -40px; '>
+                          <p style='font-size: #{params[:timer_size]}px; color: #{params[:timer_color]}; font-family: #{params[:timer_font]}; margin-right: -40px; margin-top: 15px; '>
                             #{params[:timer_text]}</p>
                         </div>
                         <div class='col-xs-6 time-left' style='font-size: 40px;' >
@@ -1343,7 +1343,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                       <div class='row' >
                         <div class='col-xs-2'></div>
                         <div class='col-xs-4'>
-                          <p style='font-size: #{params[:timer_size]}px; color: #{params[:timer_color]}; font-family: #{params[:timer_font]}; margin-right: -40px; '>
+                          <p style='font-size: #{params[:timer_size]}px; color: #{params[:timer_color]}; font-family: #{params[:timer_font]}; margin-right: -40px; margin-top: 15px; '>
                             #{params[:timer_text]}</p>
                         </div>
                         <div class='col-xs-6 time-left' style='font-size: 40px;' >
@@ -1389,97 +1389,6 @@ class AdminController < ShopifyApp::AuthenticatedController
                 </div>
 
               </div>"
-
-      when 'option4'
-        
-        styleContent = "@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-                        @import url('https://fonts.googleapis.com/css?family=Roboto');
-                        @import url('https://fonts.googleapis.com/css?family=Lato');
-                        @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
-                        @import url('https://fonts.googleapis.com/css?family=Lobster');
-                        @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
-                        @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
-                        @import url('https://fonts.googleapis.com/css?family=Chewy');
-                        @import url('https://fonts.googleapis.com/css?family=Quicksand');
-                        @import url('https://fonts.googleapis.com/css?family=Satisfy');
-                        @import url('https://fonts.googleapis.com/css?family=Oswald');
-                        #tsmodal-fade{position: fixed; top: 0; width: 100%;  height: 100%; z-index: 1000; background: rgba(0,0,0,.5); left: 0;} 
-                        #tsmodal{ text-align: center; padding: 10px; border: 5px double #{params[:bd_color]}; width: 555px; height: 245px; box-shadow: 0 0 5px grey; background-image: url(#{background1}); background-color: #{params[:bg_color]}; color: #{params[:main_color]}; font-family: #{params[:main_font]}; background-repeat: no-repeat;  background-size: contain;  background-position: right top; margin: auto; margin-top: 10%; border-radius: 5px; }
-                        div.time-left{ margin-top: -60px; padding: 14px; text-align: center; font-size: 20px; border-radius: 10px 10px 0 0;  box-shadow: 0 0 5px grey; font-weight: 900; width: 70%; margin-left: auto;  margin-right: auto; background: #{params[:main_color]}; color: #{params[:timer_color]}; font-family: #{params[:timer_font]}; }
-                        div.time-left span{ font-size: 28px; }
-                        div.main-content { margin-top: -5px; } 
-                        div.right-box, div.left-box{ height: 150px; position: relative; width: 46%; padding: 10px 5px; }
-                        div.right-box{ float: right; opacity: .8; }
-                        div.left-box{ float: left; border-radius: 3px; }
-                        a#btn{ background-color: #{params[:main_color]}; color: #{params[:btn_color]}; font-family: #{params[:btn_font]}; border-radius: 3px; padding: 10px 20px; box-shadow: 0 0 3px gray; text-decoration: none; display: inline-block; margin-top: 20px; font-size: 22px; }
-                        p.detailed-upsell{ color:#{params[:txt_color]}; font-size: #{params[:font_size]}px; }
-                        div.use-code{  font-size: 20px; font-weight: 900; padding: 10px; border: 2px solid #{params[:bd_color]}; border-radius: 3px;  word-wrap: break-word; max-height: 80px; overflow: hidden; display: inline-block; margin-top: 20px; color: #{params[:txt_color]};}
-                        div.use-code p { color: #{params[:txt_color]}; }
-                        div.discount { color: #fff; font-size: 25px; border-radius: 4px; display: inline-block; line-height: 15px; border-radius: 50%; border: 5px solid #fff; padding: 30px 15px; box-shadow: -3px 5px 1px #dbdddf; margin-top: 15%; margin-left: -65%; background-color: #{params[:main_color]};}
-                        div.discount table td{ padding-left: 0 !important; }
-                        div#close{ position: relative; left: 290px; top: -10px;  background: #{params[:main_color]};  display: inline-block;  border-radius: 50%;  padding: 2px 6px;  color: #fff;  border: 3px solid #fff;  box-shadow: 0 0 3px grey;  cursor: pointer; transition: all 1s;}
-                        div#close:hover{ transform: rotate(360deg)scale(1.3); }"
-        jsContent    = "$(function() {
-                          $('#tsmodal').addClass('animated tada');
-                          $('#close').on('click', function(){
-                              $('div#tsmodal-fade').addClass('animated slideOutDown');
-                            });
-                          var hms = '#{params[:time_left]}';   
-                          var a = hms.split(':');
-                          var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
-                          var selectedSeconds = new Date().getTime() + seconds*1000;    
-                          $('div.time-left span').countdown(selectedSeconds, {elapse: true})
-                          .on('update.countdown', function(event) {
-                            var $this = $(this);
-                            if (event.elapsed) {
-                              $('div#tsmodal-fade').addClass('animated zoomOut');
-                            } else {
-                              $this.html(event.strftime('%H:%M:%S'));
-                            }
-                          });
-                          $('a#btn').on('click', function(){
-                              var redirect_url = $(this).attr('data-link');
-                              $.ajax({
-                                  url: '#{save_order_url}',
-                                  data: { ordername: $(this).attr('data-order'), shop: '#{@shop.shopify_domain}' },
-                                  type: 'post',
-                                  success: function(response){
-                                        if(response.status == 'success'){
-                                            window.top.location.href = redirect_url;
-                                          }else{
-                                            $('div#tsmodal-fade').addClass('animated slideOutDown');
-                                          }
-                                    }
-                                });
-                          });
-
-                       });"
-
-        result = "<link href='{{'tspopup.css' | asset_url}}' rel='stylesheet' type='text/css' media='all' />
-                  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
-                  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-                  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js'></script>
-                  <script src='{{'tspopup.js' | asset_url }}' type='text/javascript' ></script>
-                  <div id='tsmodal-fade'> <div id='tsmodal'>
-                  <div class='time-left'>  OFFER ENDS: <span>#{params[:time_left]}</span> </div>
-                  <div id='close'>X</div>
-                  <div class='main-content'>
-                  <div class='left-box'>
-                    <p class='detailed-upsell'>#{params[:main_text]}</p>
-                    <div class='use-code'>USE CODE: #{params[:use_code]}</div>
-                  </div>
-                  <div class='right-box'>
-                    <div class='discount'>
-                      <table><tbody><tr>
-                          <td style='font-size: 40px;' >#{params[:percentage]}</td>
-                          <td >#{params[:distype]}<br><span style='font-size: 15px;''>off</span></td>
-                      </tr></tbody></table>
-                    </div>
-                  </div>
-                  </div>
-                  <div style='clear:both;'></div>
-                  <a href='#' data-link='#{params[:btn_link]}' id='btn'>#{params[:btn_txt]}</a>
-                  </div> </div>"
 
     end    
     
