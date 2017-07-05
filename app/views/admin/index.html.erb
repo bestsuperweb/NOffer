@@ -845,23 +845,86 @@
 				</div>
 			</div>
 			<div class="row" id="dashboard">
-				<div class="col-sm-12">
+				<div class="col-sm-12 conversion">
 					<div class="meterWrapper">
 						<h2>Views</h2>
 						<div class="well">
-							<div class="meterCount"><%= @all_orders.size %></div>
+							<div class="meterCount"><%= @dashboard[:today_tcount] %></div>
 						</div>	
 					</div>
 					<div class="meterWrapper">
 						<h2>Orders</h2>
 						<div class="well">
-							<div class="meterCount"><%= @dashboard[:all_count] %></div>
+							<div class="meterCount"><%= @dashboard[:today_count] %></div>
 						</div>	
 					</div>
 					<div class="meterWrapper">
 						<h2>Conversion Rate</h2>
 						<div class="well">
-							<div class="meterCount"><%= ( @all_orders.size.to_f / @dashboard[:all_count].to_f ).to_f %></div>
+							<div class="meterCount"><%= ( @dashboard[:today_tcount].to_f / @dashboard[:today_count].to_f ).to_f %>%</div>
+						</div>	
+					</div>
+				</div>
+
+				<div class="col-sm-12 conversion">
+					<div class="meterWrapper">
+						<h2>Views</h2>
+						<div class="well">
+							<div class="meterCount"><%= @dashboard[:week_tcount] %></div>
+						</div>	
+					</div>
+					<div class="meterWrapper">
+						<h2>Orders</h2>
+						<div class="well">
+							<div class="meterCount"><%= @dashboard[:week_count] %></div>
+						</div>	
+					</div>
+					<div class="meterWrapper">
+						<h2>Conversion Rate</h2>
+						<div class="well">
+							<div class="meterCount"><%= ( @dashboard[:week_tcount].to_f / @dashboard[:week_count].to_f ).to_f %>%</div>
+						</div>	
+					</div>
+				</div>
+
+				<div class="col-sm-12 conversion">
+					<div class="meterWrapper">
+						<h2>Views</h2>
+						<div class="well">
+							<div class="meterCount"><%= @dashboard[:month_tcount] %></div>
+						</div>	
+					</div>
+					<div class="meterWrapper">
+						<h2>Orders</h2>
+						<div class="well">
+							<div class="meterCount"><%= @dashboard[:month_count] %></div>
+						</div>	
+					</div>
+					<div class="meterWrapper">
+						<h2>Conversion Rate</h2>
+						<div class="well">
+							<div class="meterCount"><%= ( @dashboard[:month_tcount].to_f / @dashboard[:month_count].to_f ).to_f %>%</div>
+						</div>	
+					</div>
+				</div>
+
+				<div class="col-sm-12 conversion">
+					<div class="meterWrapper">
+						<h2>Views</h2>
+						<div class="well">
+							<div class="meterCount"><%= @dashboard[:year_tcount] %></div>
+						</div>	
+					</div>
+					<div class="meterWrapper">
+						<h2>Orders</h2>
+						<div class="well">
+							<div class="meterCount"><%= @dashboard[:year_count] %></div>
+						</div>	
+					</div>
+					<div class="meterWrapper">
+						<h2>Conversion Rate</h2>
+						<div class="well">
+							<div class="meterCount"><%= ( @dashboard[:year_tcount].to_f / @dashboard[:year_count].to_f ).to_f %>%</div>
 						</div>	
 					</div>
 				</div>

@@ -16,7 +16,26 @@ class AdminController < ShopifyApp::AuthenticatedController
                     month_count: 0, month_price: 0,
                     year_count: 0, year_price: 0,
                     all_count: 0, all_price: 0,
+                    today_tcount: 0, week_tcount: 0,
+                    month_tcount: 0, year_tcount: 0
                   }
+    @all_orders.each{|order|
+        if Date.parse(order.created_at) == Date.today
+            @dashboard[:today_tcount] += 1
+        end
+
+        if Date.parse(order.created_at) > ( Date.today - 7 )
+            @dashboard[:week_tcount] += 1
+        end
+
+        if Date.parse(order.created_at) > Date.today.prev_month
+            @dashboard[:month_tcount] += 1
+        end
+
+        if Date.parse(order.created_at) > Date.today.prev_year
+            @dashboard[:year_tcount] += 1
+        end
+    }
 
     @orders.each {|order|
 
