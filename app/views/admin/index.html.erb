@@ -907,7 +907,7 @@
 				<table id="order-table">
 					<thead>
 						<tr>
-							<th>Name</th>
+							<th>Order ID</th>
 							<th>Date</th>
 							<th>Customer</th>
 							<th>Email</th>
@@ -917,7 +917,7 @@
 					</thead>
 					<tfoot>
 						<tr>
-							<th>Name</th>
+							<th>Order ID</th>
 							<th>Date</th>
 							<th>Customer</th>
 							<th>Email</th>
@@ -948,7 +948,7 @@
 					<tbody>
 						<% @orders.each do |order| %>
 							<tr>
-								<td><%= order.name %></td>
+								<td><a href=<%= "https://#{ @shop_session.url }/admin/orders/#{order.id}" %> target="_blank"><%= order.name %></a></td>
 								<td><%= DateTime.parse(order.created_at).strftime('%Y-%m-%d %H:%M:%S') %></td>
 								<td><%= "#{order.customer.first_name} #{order.customer.last_name}"  %></td>
 								<td><%= order.email %></td>
