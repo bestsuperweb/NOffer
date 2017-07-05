@@ -847,6 +847,27 @@
 			<div class="row" id="dashboard">
 				<div class="col-sm-12">
 					<div class="meterWrapper">
+						<h2>Views</h2>
+						<div class="well">
+							<div class="meterCount"><%= @all_orders.size %></div>
+						</div>	
+					</div>
+					<div class="meterWrapper">
+						<h2>Orders</h2>
+						<div class="well">
+							<div class="meterCount"><%= @dashboard[:all_count] %></div>
+						</div>	
+					</div>
+					<div class="meterWrapper">
+						<h2>Conversion Rate</h2>
+						<div class="well">
+							<div class="meterCount"><%= (@all_orders.size/@dashboard[:all_count]).round(2) %></div>
+						</div>	
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+					<div class="meterWrapper">
 						<h2>Today</h2>
 						<div class="well">
 							<div class="meterCount"><%= @dashboard[:today_count] %></div>
@@ -887,16 +908,16 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="chart-div">
-						<%= area_chart @orders.group_by_day(&:created_at).map{ |k, v| [ k, v.map {|s| s.total_price.to_f }.reduce(0, :+) ] } %>
+						<%= area_chart @orders.group_by_day(&:created_at).map{ |k, v| [ k, v.map {|s| s.total_price.to_f.round(2) }.reduce(0, :+) ] } %>
 					</div>
 					<div class="chart-div">
-						<%= area_chart @orders.group_by_week(&:created_at).map{ |k, v| [ k, v.map {|s| s.total_price.to_f }.reduce(0, :+) ] } %>
+						<%= area_chart @orders.group_by_week(&:created_at).map{ |k, v| [ k, v.map {|s| s.total_price.to_f.round(2) }.reduce(0, :+) ] } %>
 					</div>
 					<div class="chart-div">
-						<%= area_chart @orders.group_by_month(&:created_at).map{ |k, v| [ k, v.map {|s| s.total_price.to_f }.reduce(0, :+) ] } %>
+						<%= area_chart @orders.group_by_month(&:created_at).map{ |k, v| [ k, v.map {|s| s.total_price.to_f.round(2) }.reduce(0, :+) ] } %>
 					</div>
 					<div class="chart-div">
-						<%= area_chart @orders.group_by_year(&:created_at).map{ |k, v| [ k, v.map {|s| s.total_price.to_f }.reduce(0, :+) ] } %>
+						<%= area_chart @orders.group_by_year(&:created_at).map{ |k, v| [ k, v.map {|s| s.total_price.to_f.round(2) }.reduce(0, :+) ] } %>
 					</div>										
 				</div>	
 			</div>

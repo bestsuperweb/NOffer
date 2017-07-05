@@ -3,7 +3,8 @@ class AdminController < ShopifyApp::AuthenticatedController
   before_action      :set_option, only: [:index, :generate_script]
 
   def index
-    @products   = ShopifyAPI::Product.all     
+    @products   = ShopifyAPI::Product.all
+    @all_orders = ShopifyAPI::Order.all     
     
     saved_orders = Order.pluck(:ordername)
     @orders = saved_orders.collect {|order_name| ShopifyAPI::Order.where(:name => order_name).first }
@@ -14,7 +15,7 @@ class AdminController < ShopifyApp::AuthenticatedController
                     week_count: 0, week_price: 0, 
                     month_count: 0, month_price: 0,
                     year_count: 0, year_price: 0,
-                    all_count: 0, all_price: 0
+                    all_count: 0, all_price: 0,
                   }
 
     @orders.each {|order|
