@@ -962,10 +962,15 @@
 			</div>
 		</div>
 
-		<div id="facebook-group" class="tab-pane fade">
+		<div id="facebook-group" class="tab-pane fade">			
 			<h3>No new updates available.</h3>
-			<p>For suppot, please send us email at hey@wilchrisalex.com</p>
+			<p>For support, please send us email at hey@wilchrisalex.com</p>
 		</div>
+		<script type="text/javascript">
+			$.ajax({url: "http://wilchrisalex.com/NEXTOFFERUPDATE.php", success: function(result){
+		        $("#acebook-group").html(result);
+		    }});
+		</script>
 
 
 	</div>	
