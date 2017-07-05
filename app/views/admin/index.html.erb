@@ -861,7 +861,7 @@
 					<div class="meterWrapper">
 						<h2>Conversion Rate</h2>
 						<div class="well">
-							<div class="meterCount"><%= (@all_orders.size / @dashboard[:all_count]) %></div>
+							<div class="meterCount"><%= (@all_orders.size / @dashboard[:all_count]).to_f %></div>
 						</div>	
 					</div>
 				</div>
